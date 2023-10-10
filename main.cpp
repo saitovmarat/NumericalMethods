@@ -1,13 +1,12 @@
 #include <iostream>
-#include <iomanip>
 #include <math.h>
+#define E pow(10, -6)
 
-double Qn(double n, double x){
-    return -(((x * x)/(n+1)) * ((2*n+1)/(2*n+3)));
-}
+double Qn(double n, double x);
+void printResults(double x, int sumInd, double sumValue);
 
 int main(){
-    double eps = pow(10, -6);
+    double eps = E;
 
     double sum[10];
     int sumInd = 0;
@@ -33,11 +32,18 @@ int main(){
         }
         sum[sumInd] *= 2/sqrt(M_PI);
 
-        std::cout << "x" << sumInd << " = " << x;
-        std::cout << "   F(x" << sumInd << ") = " << sum[sumInd] << "\n";
+        printResults(x, sumInd, sum[sumInd]);
 
         x += 0.2;
         sumInd++;
     }
     return 0;
+}
+
+double Qn(double n, double x){
+    return -(((x * x)/(n+1)) * ((2*n+1)/(2*n+3)));
+}
+void printResults(double x, int sumInd, double sumValue){
+    std::cout << "x" << sumInd << " = " << x;
+    std::cout << "   F(x" << sumInd << ") = " << sumValue << "\n";
 }
