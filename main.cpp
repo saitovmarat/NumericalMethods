@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <math.h>
 
 double Qn(double n, double x){
@@ -13,7 +14,6 @@ int main(){
     
     double x = 0.0;
     while(x <= 2){
-        std::cout << "x" << sumInd << " = " << x << "\n\n";
         int n = 0;
 
         double prevA = 0;
@@ -22,27 +22,19 @@ int main(){
         sum[sumInd] += currentA;
         prevA = currentA;
         
-        std::cout << "n = " << n << "\n";
-        std::cout << "an = " << currentA << "\n\n";
-
         n++;
 
-        while(prevA >= eps){
-            std::cout << "n = " << n << "\n";
-            
+        while(abs(prevA) >= eps){
             currentA = Qn(n-1, x) * prevA;
             sum[sumInd] += currentA;
             prevA = currentA;
-            
-            std::cout << "an = " << prevA << "\n";
-            std::cout << "\n";
+
             n++;
         }
         sum[sumInd] *= 2/sqrt(M_PI);
-        
-        std::cout << "F(x" << sumInd << ") = " << sum[sumInd] << "\n\n";
-        std::cout << "Кол-во итераций = " << n << "\n";
-        std::cout << "------------------------------------------"<< "\n"; 
+
+        std::cout << "x" << sumInd << " = " << x;
+        std::cout << "   F(x" << sumInd << ") = " << sum[sumInd] << "\n";
 
         x += 0.2;
         sumInd++;
