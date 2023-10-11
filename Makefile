@@ -3,10 +3,10 @@ all: build compile
 rebuild: clean build compile
 
 build:
-	g++ -Wall -Wextra -Werror main.cpp -o a && clear
+	g++ main.cpp -o main && clear
 
 compile:
-	./a
+	./main
 
 clean:
-	rm -rf a
+	rm -rf main *.out
