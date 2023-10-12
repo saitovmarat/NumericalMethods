@@ -1,5 +1,4 @@
-#include "countF.h"
-#include "countL.h"
+#include "countFunctions.h"
 
 void printResults(double* F, double* L);
 
@@ -8,7 +7,8 @@ int main(){
     double L[11];
 
     countF(F);
-    countL(F, L);
+    countL(L);
+
     printResults(F, L);
     return 0;
 }

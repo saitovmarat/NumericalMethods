@@ -2,14 +2,11 @@ all: build compile
 
 rebuild: clean build compile 
 
-build: countF countL
-	g++ ../build/countF ../build/countL main.cpp -o ../build/main
+build: countFunctions
+	g++ ../build/countFunctions main.cpp -o ../build/main && clear
 
-countF:
-	g++ -c countF.cpp -o ../build/countF
-
-countL:
-	g++ -c countL.cpp -o ../build/countL
+countFunctions:
+	g++ -c countFunctions.cpp -o ../build/countFunctions
 
 compile:
 	../build/main
