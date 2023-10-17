@@ -1,35 +1,33 @@
 #include "countFunctions.h"
 
-void printResults(double* F, double* L);
+void printResults(double* F, double* L, double* E);
 
 int main(){
     double F[6];
     double L[11];
+    double E[11];
 
     countF(F);
     countL(L);
-
-    printResults(F, L);
+    countE(E);
+    printResults(F, L, E);
     return 0;
 }
 
-void printResults(double* F, double* L){
+void printResults(double* F, double* L, double* E){
     int spaces;
     double x = 0;
-    //F
-    for(int i = 0; i < 6; i++){
-        spaces  = abs((i/10) - 2);
-        printf("x%d = %.1F%*s| ", i, x, spaces, "");
-        printf("F(x%d) = %.6F\n", i, F[i]);
-        x += 0.4;
-    }
-    printf("---------------------------------\n");
-    x = 0;
-    //L
+    int F_index = 0;
     for(int i = 0; i < 11; i++){
         spaces  = abs((i/10) - 2);
         printf("x%d = %.1F%*s| ", i, x, spaces, "");
-        printf("L(x%d) = %.6F\n", i, L[i]);
+        if(i%2 == 0){
+            printf("F(x) = %.6f | L(x) = %.6f | E(x) = %.6f\n",  F[F_index],  L[i],  E[i]);
+            F_index++;
+        }else
+            printf("F(x) = %s | L(x) = %.6f | E(x) = %.6f\n",  "--------",  L[i],  E[i]);
         x += 0.2;
     }
+    printf("Emax = %.6f\n", max(E, 11));
+    printf("---------------------------------\n");
 }
