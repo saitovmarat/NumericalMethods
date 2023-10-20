@@ -15,12 +15,12 @@ int main(){
 }
 
 void printResults(double* F, double* L, double* E){
-    int spaces;
-    double x = 0;
+    int spaces = 0;
+    double x = 0.0;
     int F_index = 0;
     for(int i = 0; i < 11; i++){
         spaces  = abs((i/10) - 2);
-        printf("x%d = %.1F%*s| ", i, x, spaces, "");
+        printf("x%d = %.1f%*s| ", i, x, spaces, "");
         if(i%2 == 0){
             printf("F(x) = %.6f | L(x) = %.6f | E(x) = %.6f\n",  F[F_index],  L[i],  E[i]);
             F_index++;

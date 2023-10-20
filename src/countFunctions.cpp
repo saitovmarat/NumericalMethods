@@ -33,7 +33,7 @@ double countF(double x){
     result *= 2 / sqrt(M_PI);
     return result;
 }
-void countF(double *F){
+void countF(double* F){
     double eps = Eps;
     double h = 0.4;
 
@@ -47,29 +47,27 @@ void countF(double *F){
     }
 }
 double countL(double x){
-    double xij[6] = {0, 0.4, 0.8, 1.2, 1.6, 2};
     double result = 0.0;
     for (int i = 0; i < 6; i++){
-        double Fx = countF(xij[i]);
+        double xi = i*0.4; //Не запутайся
+        double Fx = countF(xi);
         for (int j = 0; j < 6; j++){
             if (i == j)
                 continue;
-            Fx *= (x - xij[j]) / (xij[i] - xij[j]);
+            double xj = j*0.4; //Не запутайся
+            Fx *= (x - xj) / (xi - xj);
         }
         result += Fx;     
     }
     return result;
 }
-void countL(double *L){
-    double xij[6] = {0, 0.4, 0.8, 1.2, 1.6, 2};
-    double x[11] = {0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2}; 
-    int L_index = 0;
-    while (L_index < 11){
-        L[L_index]+= countL(x[L_index]);
-        L_index++;
+void countL(double* L){
+    for(int i = 0; i < 11; i++){
+        double x = i*0.2; // 0.2 - расстояние между x-ами
+        L[i]+= countL(x);
     }
-}
-void countE(double *E){
+}   
+void countE(double* E){
     for(int i = 0; i < 11; i++){
         double x = i*0.2;
         E[i] = abs(countF(x) - countL(x));

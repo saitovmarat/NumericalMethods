@@ -6,9 +6,9 @@ double max(double* function, size_t size);
 double Qn(double n, double x);
 
 double countF(double x);
-void countF(double* x);
+void countF(double* F);
 
 double countL(double x);
-void countL(double *L);
+void countL(double* L);
 
-void countE(double *E);
+void countE(double* E);
