@@ -36,25 +36,22 @@ double countF(double x){
 void countF(double* F){
     double eps = Eps;
     double h = 0.4;
-
     int sumInd = 0;
 
-    double x = 0;
-    while (x <= 2){
+    for(double x = 0; x <= 2; x += h){
         F[sumInd] += countF(x);
-        x += h;
         sumInd++;
     }
 }
 double countL(double x){
     double result = 0.0;
     for (int i = 0; i < 6; i++){
-        double xi = i*0.4; //Не запутайся
+        double xi = i*0.4; // *
         double Fx = countF(xi);
         for (int j = 0; j < 6; j++){
             if (i == j)
                 continue;
-            double xj = j*0.4; //Не запутайся
+            double xj = j*0.4; // *
             Fx *= (x - xj) / (xi - xj);
         }
         result += Fx;     
@@ -63,7 +60,7 @@ double countL(double x){
 }
 void countL(double* L){
     for(int i = 0; i < 11; i++){
-        double x = i*0.2; // 0.2 - расстояние между x-ами
+        double x = i*0.2; // 0.2 - расстояние между точками
         L[i]+= countL(x);
     }
 }   
