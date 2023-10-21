@@ -61,7 +61,7 @@ double countL(double x){
 void countL(double* L){
     for(int i = 0; i < 11; i++){
         double x = i*0.2; // 0.2 - расстояние между точками
-        L[i]+= countL(x);
+        L[i] = countL(x);
     }
 }   
 void countE(double* E){
