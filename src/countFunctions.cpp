@@ -15,7 +15,8 @@ double countF(double x){
     double eps = Eps;
     double result = 0;
     int n = 0;
-    
+
+    //Мне не нравится эта часть до while, но что поделать. Говнокод, но рабочий!(
     double prevA = 0;
     double currentA = x;
 
@@ -45,13 +46,14 @@ void countF(double* F){
 }
 double countL(double x){
     double result = 0.0;
+    double h = 0.4;
     for (int i = 0; i < 6; i++){
-        double xi = i*0.4; // *
+        double xi = i*h;
         double Fx = countF(xi);
         for (int j = 0; j < 6; j++){
             if (i == j)
                 continue;
-            double xj = j*0.4; // *
+            double xj = j*h;
             Fx *= (x - xj) / (xi - xj);
         }
         result += Fx;     
@@ -59,14 +61,21 @@ double countL(double x){
     return result;
 }
 void countL(double* L){
+    double h = 0.2;
     for(int i = 0; i < 11; i++){
-        double x = i*0.2; // 0.2 - расстояние между точками
+        double x = i*h;
         L[i] = countL(x);
     }
 }   
 void countE(double* E){
+    double h = 0.2; 
     for(int i = 0; i < 11; i++){
-        double x = i*0.2;
+        double x = i*h;
         E[i] = abs(countF(x) - countL(x));
     }
+}
+double countEmaxWithDiffNodes(){
+    int nodes = 6; //менять кол-во узлов. Также изменять расстояние между точками соответственно кол-ву узлов 
+
+    return 0.0;
 }
