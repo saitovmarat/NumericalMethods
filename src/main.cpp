@@ -2,8 +2,8 @@
 #include "printResults.h"
 
 int main(){
-    for(int nodesCount = 6; nodesCount < 20; nodesCount++){
-        if (nodesCount == 10)
+    for(int nodesCount = 6; nodesCount < 22; nodesCount++){
+        if (nodesCount % 10 == 0)
             continue;
         double* E = countEwithDiffNodes(nodesCount);
         printResults(nodesCount, E);
