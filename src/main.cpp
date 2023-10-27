@@ -2,18 +2,13 @@
 #include "printResults.h"
 
 int main(){
-    double* Emax = new double[14];
-    int cnt = 0;
-    for(int nodesCount = 6; nodesCount < 15; nodesCount++){
-        double* F = countFWithDiffNodes();
-        double* L = countLWithDiffNodes(nodesCount);
+    for(int nodesCount = 6; nodesCount < 20; nodesCount++){
+        if (nodesCount == 10)
+            continue;
         double* E = countEwithDiffNodes(nodesCount);
-        Emax[nodesCount-1] = max(E, 11);
         printResults(nodesCount, E);
-        cnt++;
-        //printResults(F, L, E);
-        delete[] F, L, E;
+        delete[] E;
     }
-    printf("max Emax = %f\n", max(Emax, 14));
+    printf("---------------------------\n");
     return 0;
 }

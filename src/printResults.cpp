@@ -19,6 +19,8 @@ void printResults(double* F, double* L, double* E){
     printf("---------------------------------\n");
 }
 void printResults(int node, double* E){
-    int spaces  = abs((node/10) - 2);
+    int spaces;
+    if (node/10 > 0) spaces = 1;
+    else spaces = 2;
     printf("Node = %d%*s| Emax = %.6f\n", node, spaces, "", max(E, 11));
 }
