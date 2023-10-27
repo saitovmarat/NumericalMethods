@@ -2,3 +2,4 @@
 #include <math.h>
 
 void printResults(double* F, double* L, double* E);
+void printResults(int nodesCount, double* E);

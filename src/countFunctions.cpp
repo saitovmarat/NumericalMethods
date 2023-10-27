@@ -16,7 +16,6 @@ double countF(double x){
     double result = 0;
     int n = 0;
 
-    //Мне не нравится эта часть до while, но что поделать. Говнокод, но рабочий!(
     double prevA = 0;
     double currentA = x;
 
@@ -34,7 +33,8 @@ double countF(double x){
     result *= 2 / sqrt(M_PI);
     return result;
 }
-void countF(double* F){
+double* countFWithDiffNodes(){ 
+    double* F = new double[6];
     double eps = Eps;
     double h = 0.4;
     int sumInd = 0;
@@ -43,14 +43,15 @@ void countF(double* F){
         F[sumInd] += countF(x);
         sumInd++;
     }
+    return F;
 }
-double countL(double x){
+double countL(double x, int nodesCount){
     double result = 0.0;
-    double h = 0.4;
-    for (int i = 0; i < 6; i++){
+    double h = 2/((double)nodesCount-1);
+    for (int i = 0; i < nodesCount; i++){
         double xi = i*h;
         double Fx = countF(xi);
-        for (int j = 0; j < 6; j++){
+        for (int j = 0; j < nodesCount; j++){
             if (i == j)
                 continue;
             double xj = j*h;
@@ -60,22 +61,21 @@ double countL(double x){
     }
     return result;
 }
-void countL(double* L){
+double* countLWithDiffNodes(int nodesCount){ 
+    double* L = new double[11];
     double h = 0.2;
     for(int i = 0; i < 11; i++){
         double x = i*h;
-        L[i] = countL(x);
-    }
-}   
-void countE(double* E){
+        L[i] = countL(x, nodesCount);
+    }    
+    return L;
+}
+double* countEwithDiffNodes(int nodesCount){
+    double* E = new double[11];
     double h = 0.2; 
     for(int i = 0; i < 11; i++){
         double x = i*h;
-        E[i] = abs(countF(x) - countL(x));
-    }
-}
-double countEmaxWithDiffNodes(){
-    int nodes = 6; //менять кол-во узлов. Также изменять расстояние между точками соответственно кол-ву узлов 
-
-    return 0.0;
+        E[i] = abs(countF(x) - countL(x, nodesCount));
+    }    
+    return E;
 }
