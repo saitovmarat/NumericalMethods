@@ -33,7 +33,7 @@ double countF(double x){
     result *= 2 / sqrt(M_PI);
     return result;
 }
-double* countFWithDiffNodes(){ 
+double* countF(){ 
     double* F = new double[6];
     double eps = Eps;
     double h = 0.4;

@@ -2,7 +2,7 @@
 #include "printResults.h"
 
 int main(){
-    for(int nodesCount = 6; nodesCount < 22; nodesCount++){
+    for(int nodesCount = 6; nodesCount < 50; nodesCount++){
         if (nodesCount % 10 == 0)
             continue;
         double* E = countEwithDiffNodes(nodesCount);
