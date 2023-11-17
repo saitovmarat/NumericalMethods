@@ -12,3 +12,11 @@ double countL(double x, int nodesCount);
 double* countLWithDiffNodes(int nodesCount);
 
 double* countEwithDiffNodes(int nodesCount);
+
+//Узлы Чебышева
+double chebNode(double i);
+double* nodes_ArrayCheb();
+double* F_ArrayCheb();
+double countL_Cheb(double x);
+double* L_ArrayCheb();
+double* E_ArrayCheb();
