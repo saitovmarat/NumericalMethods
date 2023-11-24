@@ -84,25 +84,22 @@ double* countEwithDiffNodes(int nodesCount){
 }
 
 //Узлы Чебышева
-double chebNode(double i){ // Возвращает значение узла в узле с номером i
+double chebNode(double i){ // Возвращает значение узла c индексом i
     double nodesCnt = 5;
     double b = 2;
     double a = 0;
     double result = (b+a)/2 + ((b-a)/2)*cos(((2*i+1)/(2*nodesCnt+2))*M_PI);
     return result;
 }
-double* F_ArrayCheb(){ 
+double* F_ArrayCheb(){ // Возвращает массив из функций F по узлам Чебышева
     double* F = new double[6];
     double eps = Eps;
     int sumInd = 0;
-
-    for(int i = 0; i < 6; i++){
-        F[sumInd] += countF(chebNode(i));
-        sumInd++;
-    }
+    for(int i = 0; i < 6; i++)
+        F[sumInd++] += countF(chebNode(i));
     return F;
 }
-double countL_Cheb(double x){
+double countL_Cheb(double x){ // Возвращает значение функции L в точке x
     double result = 0.0;
     for (int i = 0; i < 6; i++){
         double xi = chebNode(i);
@@ -118,7 +115,7 @@ double countL_Cheb(double x){
     return result;
 }
 // x в функции L считаются по интервалу [0, 2] с интервалом 0.2
-double* L_ArrayCheb(){ 
+double* L_ArrayCheb(){ // Возвращает массив из функций L по узлам Чебышева
     double* L = new double[11];
     double x = 0.0;
     for(int i = 0; i < 11; i++){
@@ -128,8 +125,7 @@ double* L_ArrayCheb(){
     return L;
 }
 
-//E = F-L
-double* E_ArrayCheb(){
+double* E_ArrayCheb(){ // Возвращает массив из погрешностей функций F и L
     double* E = new double[6];
     double* F = F_ArrayCheb();
     double* L = L_ArrayCheb();
