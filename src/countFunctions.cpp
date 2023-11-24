@@ -38,11 +38,11 @@ double* countF(){
     double* F = new double[6];
     double eps = Eps;
     double h = 0.4;
-    int sumInd = 0;
+    int i = 0;
 
     for(double x = 0; x <= 2; x += h){
-        F[sumInd] += countF(x);
-        sumInd++;
+        F[i] += countF(x);
+        i++;
     }
     return F;
 }
@@ -91,60 +91,54 @@ double chebNode(double i){ // Возвращает значение узла в 
     double result = (b+a)/2 + ((b-a)/2)*cos(((2*i+1)/(2*nodesCnt+2))*M_PI);
     return result;
 }
-double* nodes_ArrayCheb(){ // Возвращает массив длинной 6 из узлов
-    double* result = new double[6];
-    for(int i = 0; i < 6; i++)
-        result[i] = chebNode(i);
-    return result;
-}
 double* F_ArrayCheb(){ 
     double* F = new double[6];
     double eps = Eps;
     int sumInd = 0;
-    double* nodes = nodes_ArrayCheb();
 
     for(int i = 0; i < 6; i++){
-        F[sumInd] += countF(nodes[i]);
+        F[sumInd] += countF(chebNode(i));
         sumInd++;
     }
-    delete[] nodes;
     return F;
 }
 double countL_Cheb(double x){
     double result = 0.0;
-    double* nodes = nodes_ArrayCheb();
     for (int i = 0; i < 6; i++){
-        double xi = nodes[i];
+        double xi = chebNode(i);
         double Fx = countF(xi);
         for (int j = 0; j < 6; j++){
             if (i == j)
                 continue;
-            double xj = nodes[j];
+            double xj = chebNode(j);
             Fx *= (x - xj) / (xi - xj);
         }
         result += Fx;     
     }
-    delete[] nodes;
     return result;
 }
+// x в функции L считаются по интервалу [0, 2] с интервалом 0.2
 double* L_ArrayCheb(){ 
     double* L = new double[11];
-    double* nodes = nodes_ArrayCheb();
+    double x = 0.0;
     for(int i = 0; i < 11; i++){
-        double x = nodes[i];
         L[i] = countL_Cheb(x);
-    }   
-    delete[] nodes; 
+        x+=0.2;
+    }  
     return L;
 }
 
-
+//E = F-L
 double* E_ArrayCheb(){
-    double* E = new double[11];
-    double* nodes = nodes_ArrayCheb();
-    for(int i = 0; i < 11; i++){
-        double x = nodes[i];
-        E[i] = abs(countF(x) - countL_Cheb(nodes[i]));
+    double* E = new double[6];
+    double* F = F_ArrayCheb();
+    double* L = L_ArrayCheb();
+    int i = 0;
+    int L_i = 0;
+    for(; i < 6; i++, L_i+=2){
+        double F_x = F[i];
+        double L_x = L[L_i];
+        E[i] = abs(F_x - L_x);
     }    
     return E;
 }
