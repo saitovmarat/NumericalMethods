@@ -9,9 +9,9 @@ double countF(double x);
 double* F_Array();
 
 double countL(double x, int nodesCount);
-double* countLWithDiffNodes(int nodesCount);
+double* L_ArrayWithDiffNodes(int nodesCount);
 
-double* countEwithDiffNodes(int nodesCount);
+double* E_ArraywithDiffNodes(int nodesCount);
 
 //Узлы Чебышева
 double chebNode(double i);

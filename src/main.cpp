@@ -8,20 +8,12 @@ int main(){
         for(int nodesCount = 6; nodesCount < 51; nodesCount++){
             if (nodesCount % 10 == 1)
                 continue;
-            double* E = countEwithDiffNodes(nodesCount);
-            printResults(nodesCount, E);
-            delete[] E;
+            printResults(nodesCount, E_ArraywithDiffNodes(nodesCount));
         }
         printf("---------------------------\n");
     }
     else{
-        double* F = F_Array();
-        double* L = L_ArrayCheb();
-        double* E = E_ArrayCheb();
-        printResults(F, L, E);
-        delete[] F;
-        delete[] L;
-        delete[] E;
+        printResults(F_Array(), L_ArrayCheb(), E_ArrayCheb());
         printf("---------------------------\n");
     }
     return 0;

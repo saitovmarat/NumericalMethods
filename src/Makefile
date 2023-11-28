@@ -2,8 +2,8 @@ all: build compile
 
 rebuild: clean build compile
 
-build: countFunctions printResults
-	g++ ../build/countFunctions ../build/printResults main.cpp -o ../build/main
+build: countFunctions printResults 
+	g++ ../build/countFunctions ../build/printResults main.cpp -o ../build/main && clear
 
 countFunctions:
 	g++ -c countFunctions.cpp -o ../build/countFunctions
