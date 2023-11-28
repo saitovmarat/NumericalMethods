@@ -34,10 +34,10 @@ double countF(double x){
     result *= 2 / sqrt(M_PI);
     return result;
 }
-double* countF(){ 
-    double* F = new double[6];
+double* F_Array(){ 
+    double* F = new double[11];
     double eps = Eps;
-    double h = 0.4;
+    double h = 0.2;
     int i = 0;
 
     for(double x = 0; x <= 2; x += h){
@@ -91,14 +91,6 @@ double chebNode(double i){ // Возвращает значение узла c �
     double result = (b+a)/2 + ((b-a)/2)*cos(((2*i+1)/(2*nodesCnt+2))*M_PI);
     return result;
 }
-double* F_ArrayCheb(){ // Возвращает массив из функций F по узлам Чебышева
-    double* F = new double[6];
-    double eps = Eps;
-    int sumInd = 0;
-    for(int i = 0; i < 6; i++)
-        F[sumInd++] += countF(chebNode(i));
-    return F;
-}
 double countL_Cheb(double x){ // Возвращает значение функции L в точке x
     double result = 0.0;
     for (int i = 0; i < 6; i++){
@@ -126,14 +118,12 @@ double* L_ArrayCheb(){ // Возвращает массив из функций 
 }
 
 double* E_ArrayCheb(){ // Возвращает массив из погрешностей функций F и L
-    double* E = new double[6];
-    double* F = F_ArrayCheb();
+    double* E = new double[11];
+    double* F = F_Array();
     double* L = L_ArrayCheb();
-    int i = 0;
-    int L_i = 0;
-    for(; i < 6; i++, L_i+=2){
+    for(int i = 0; i < 11; i++){
         double F_x = F[i];
-        double L_x = L[L_i];
+        double L_x = L[i];
         E[i] = abs(F_x - L_x);
     }    
     return E;

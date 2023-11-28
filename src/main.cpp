@@ -15,7 +15,7 @@ int main(){
         printf("---------------------------\n");
     }
     else{
-        double* F = F_ArrayCheb();
+        double* F = F_Array();
         double* L = L_ArrayCheb();
         double* E = E_ArrayCheb();
         printResults(F, L, E);
