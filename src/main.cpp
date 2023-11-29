@@ -1,5 +1,4 @@
-#include "countFunctions.h"
-#include "printResults.h"
+#include "main.h"
 
 int main(){
     bool isCheb = false;

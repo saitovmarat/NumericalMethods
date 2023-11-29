@@ -1,4 +1,4 @@
-#include "countFunctions.h"
+#include "main.h"
 
 double max(double* function, size_t size){
     double max = -1000;

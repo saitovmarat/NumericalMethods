@@ -1,5 +1,4 @@
-#include "printResults.h"
-#include "countFunctions.h"
+#include "main.h"
 
 void menu(bool& cheb){
     int res;

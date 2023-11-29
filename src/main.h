@@ -4,13 +4,10 @@
 
 double max(double* function, size_t size);
 double Qn(double n, double x);
-
 double countF(double x);
 double* F_Array();
-
 double countL(double x, int nodesCount);
 double* L_ArrayWithDiffNodes(int nodesCount);
-
 double* E_ArraywithDiffNodes(int nodesCount);
 
 //Узлы Чебышева
@@ -18,3 +15,8 @@ double chebNode(double i);
 double countL_Cheb(double x);
 double* L_ArrayCheb();
 double* E_ArrayCheb();
+
+//Вывод результатов
+void menu(bool& cheb);
+void printResults(double* F, double* L, double* E);
+void printResults(int nodesCount, double* E);
