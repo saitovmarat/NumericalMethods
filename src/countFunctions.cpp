@@ -114,5 +114,7 @@ double* E_ArrayCheb(){
         double L_x = L[i];
         E[i] = abs(F_x - L_x);
     }    
+    delete[] F;
+    delete[] L;
     return E;
 }
