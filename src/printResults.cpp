@@ -16,7 +16,7 @@ void printResults(double* F, double* L, double* E){
         printf("F(x) = %.6f | L(x) = %.6f | E(x) = %.6f\n", F[i], L[i], E[i]);
         x+=0.2;
     }
-    printf("Emax = %.6f\n", max(E, 6));
+    printf("Emax = %.6f\n", max(E, 11));
 }
 void printResults(int node, double* E){
     int spaces;
