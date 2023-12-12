@@ -33,16 +33,16 @@ double* F_Array(){
     double h = 0.2;
     int i = 0;
     for(double x = 0; x <= 2; x += h, i++)
-        F[i] += countF(x);
+        F[i] = countF(x);
     return F;
 }
 double countL(double x, int nodesCount){
     double result = 0.0;
-    double h = 2/((double)nodesCount-1);
-    for (int i = 0; i < nodesCount; i++){
+    double h = 2/((double)nodesCount);
+    for (int i = 0; i < nodesCount+1; i++){
         double xi = i*h;
         double Fx = countF(xi);
-        for (int j = 0; j < nodesCount; j++){
+        for (int j = 0; j < nodesCount+1; j++){
             if (i == j)
                 continue;
             double xj = j*h;
@@ -57,7 +57,7 @@ double* L_ArrayWithDiffNodes(int nodesCount){
     double h = 0.2;
     for(int i = 0; i < 11; i++){
         double x = i*h;
-        L[i] = countL(x, nodesCount);
+        L[i] = countL(x, nodesCount+1);
     }    
     return L;
 }
@@ -78,7 +78,7 @@ double chebNode(double i){
     double nodesCnt = 5;
     double b = 2;
     double a = 0;
-    double result = (b+a)/2 + ((b-a)/2)*cos(((2*i+1)/(2*nodesCnt+2))*M_PI);
+    double result = (b+a)/2 + ((b-a)/2)*cos(((2*i+1)/(2*nodesCnt+1))*M_PI);
     return result;
 }
 double countL_Cheb(double x){

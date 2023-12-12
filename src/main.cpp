@@ -4,8 +4,8 @@ int main(){
     bool isCheb = false;
     menu(isCheb);
     if(!isCheb){
-        for(int nodesCount = 6; nodesCount < 51; nodesCount++){
-            if (nodesCount % 10 == 1)
+        for(int nodesCount = 5; nodesCount < 52; nodesCount++){
+            if (nodesCount % 10 == 0)
                 continue;
             printResults(nodesCount, E_ArraywithDiffNodes(nodesCount));
         }
