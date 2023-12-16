@@ -1,3 +1,7 @@
+ifeq ($(wildcard ../build),)
+    $(shell mkdir ../build)
+endif
+
 all: build compile
 
 rebuild: clean build compile
@@ -15,4 +19,4 @@ compile:
 	@../build/main
 
 clean:
-	@rm -rf ../build/* 
+	@rm -rf ../build
