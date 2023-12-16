@@ -2,7 +2,7 @@
 
 void menu(bool& cheb){
     int res;
-    printf("Узлы Чебышева?\n1 - Да\n2 - Нет\n");
+    printf("1 — Узлы Интерполяции\n2 — Узлы Чебышева\n");
     scanf("%d", &res);
     if (res == 1) cheb = true;
     else cheb = false; 

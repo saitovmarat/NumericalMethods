@@ -74,41 +74,40 @@ double* E_ArraywithDiffNodes(int nodesCount){
 }
 
 //Узлы Чебышева
-double chebNode(double i){
-    double nodesCnt = 5;
+double chebNode(double i, int nodesCount){
     double b = 2;
     double a = 0;
-    double result = (b+a)/2 + ((b-a)/2)*cos(((2*i+1)/(2*nodesCnt+1))*M_PI);
+    double result = (b+a)/2 + ((b-a)/2)*cos(((2*i+1)/(2*nodesCount+1))*M_PI);
     return result;
 }
-double countL_Cheb(double x){
+double countL_Cheb(double x, int nodesCount){
     double result = 0.0;
-    for (int i = 0; i < 6; i++){
-        double xi = chebNode(i);
+    for (int i = 0; i < nodesCount+1; i++){
+        double xi = chebNode(i, nodesCount);
         double Fx = countF(xi);
-        for (int j = 0; j < 6; j++){
+        for (int j = 0; j < nodesCount+1; j++){
             if (i == j)
                 continue;
-            double xj = chebNode(j);
+            double xj = chebNode(j, nodesCount);
             Fx *= (x - xj) / (xi - xj);
         }
         result += Fx;     
     }
     return result;
 }
-double* L_ArrayCheb(){ 
+double* L_ArrayCheb(int nodesCount){ 
     double* L = new double[11];
     double x = 0.0;
     for(int i = 0; i < 11; i++){
-        L[i] = countL_Cheb(x);
+        L[i] = countL_Cheb(x, nodesCount);
         x+=0.2;
     }  
     return L;
 }
-double* E_ArrayCheb(){
+double* E_ArrayCheb(int nodesCount){
     double* E = new double[11];
     double* F = F_Array();
-    double* L = L_ArrayCheb();
+    double* L = L_ArrayCheb(nodesCount);
     for(int i = 0; i < 11; i++){
         double F_x = F[i];
         double L_x = L[i];

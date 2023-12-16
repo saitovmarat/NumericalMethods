@@ -11,10 +11,10 @@ double* L_ArrayWithDiffNodes(int nodesCount);
 double* E_ArraywithDiffNodes(int nodesCount);
 
 //Узлы Чебышева
-double chebNode(double i);
-double countL_Cheb(double x);
-double* L_ArrayCheb();
-double* E_ArrayCheb();
+double chebNode(double i, int nodesCount);
+double countL_Cheb(double x, int nodesCount);
+double* L_ArrayCheb(int nodesCount);
+double* E_ArrayCheb(int nodesCount);
 
 //Вывод результатов
 void menu(bool& cheb);

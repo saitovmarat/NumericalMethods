@@ -12,7 +12,11 @@ int main(){
         printf("---------------------------\n");
     }
     else{
-        printResults(F_Array(), L_ArrayCheb(), E_ArrayCheb());
+        for(int nodesCount = 5; nodesCount < 45; nodesCount++){
+            if (nodesCount % 10 == 0)
+                continue;
+            printResults(nodesCount, E_ArrayCheb(nodesCount));
+        }
         printf("---------------------------\n");
     }
     return 0;
