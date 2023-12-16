@@ -7,7 +7,7 @@ int main(){
         for(int nodesCount = 5; nodesCount < 52; nodesCount++){
             if (nodesCount % 10 == 0)
                 continue;
-            printResults(nodesCount, E_ArraywithDiffNodes(nodesCount));
+            printResults(nodesCount, E_Array(nodesCount));
         }
         printf("---------------------------\n");
     }

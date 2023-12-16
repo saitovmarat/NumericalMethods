@@ -7,8 +7,8 @@ double Qn(double n, double x);
 double countF(double x);
 double* F_Array();
 double countL(double x, int nodesCount);
-double* L_ArrayWithDiffNodes(int nodesCount);
-double* E_ArraywithDiffNodes(int nodesCount);
+double* L_Array(int nodesCount);
+double* E_Array(int nodesCount);
 
 //Узлы Чебышева
 double chebNode(double i, int nodesCount);

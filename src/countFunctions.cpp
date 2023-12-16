@@ -52,7 +52,7 @@ double countL(double x, int nodesCount){
     }
     return result;
 }
-double* L_ArrayWithDiffNodes(int nodesCount){ 
+double* L_Array(int nodesCount){ 
     double* L = new double[11];
     double h = 0.2;
     for(int i = 0; i < 11; i++){
@@ -63,7 +63,7 @@ double* L_ArrayWithDiffNodes(int nodesCount){
 }
 
 
-double* E_ArraywithDiffNodes(int nodesCount){
+double* E_Array(int nodesCount){
     double* E = new double[11];
     double h = 0.2; 
     for(int i = 0; i < 11; i++){
