@@ -23,7 +23,8 @@ public:
     double Qn(double n, double x);
     double erf(double x);
 
-    void printTable(int n);
+    void setFunctionsValue(double* Fn, double* F2n, double* En, double Fxi, int n, double xi);
+    int printTable(int n);
 
     // #1 Методы Левых и Правых прямоугольников
     double Left_Rect(int n, double x);

@@ -103,54 +103,74 @@ double Function::Gaus(int n, double x){
     return sum;
 }
 
-void Function::printTable(int n){
+void Function::setFunctionsValue(double* Fn, double* F2n, double* En, double Fxi, int n, double xi){
+    switch(type){
+        case leftRec:{
+            *Fn = Left_Rect(n, xi);
+            *F2n = Left_Rect(2*n, xi);
+            *En = abs(*(Fn)-Fxi);
+            break;
+        }
+        case rightRec:{
+            *Fn = Right_Rect(n, xi);
+            *F2n = Right_Rect(2*n, xi);
+            *En = abs(*(Fn)-Fxi);
+            break;
+        }
+        case centerRect:{
+            *Fn = Center_Rect(n, xi);
+            *F2n = Center_Rect(2*n, xi);
+            *En = abs(*(Fn)-Fxi);
+            break;
+        }
+        case trapezoid:{
+            *Fn = Trapezoid(n, xi);
+            *F2n = Trapezoid(2*n, xi);
+            *En = abs(*(Fn)-Fxi);
+            break;
+        }
+        case simpson:{
+            *Fn = Simpson(n, xi);
+            *F2n = Simpson(2*n, xi);
+            *En = abs(*(Fn)-Fxi);
+            break;
+        }
+        case gaus:{
+            *Fn = Gaus(n, xi);
+            *F2n = Gaus(2*n, xi);
+            *En = abs(*(Fn)-Fxi);
+            break;
+        }
+    }
+}
+
+int Function::printTable(int n){
+    double minSub = 1;
+    int error = 1;
     double h = 0.2;
-    int a = 0;
-    double En;
+    double En, Fn, F2n;
     std::cout << "------------------------------------------------------------------------------\n";
     for(int i = 1; i < 11; i++){
         double xi = a + i*h;
         set_b(xi);
         double Fxi = erf(xi);
-        double Fn;
-        switch(type){
-            case leftRec:{
-                Fn = Left_Rect(n, xi);
-                En = Left_Rect(2*n, xi) - Left_Rect(n, xi);
-                break;
-            }
-            case rightRec:{
-                Fn = Right_Rect(n, xi);
-                En = Right_Rect(2*n, xi) - Right_Rect(n, xi);
-                break;
-            }
-            case centerRect:{
-                Fn = Center_Rect(n, xi);
-                En = Center_Rect(2*n, xi) - Center_Rect(n, xi);
-                break;
-            }
-            case trapezoid:{
-                Fn = Trapezoid(n, xi);
-                En = Trapezoid(2*n, xi) - Trapezoid(n, xi);
-                break;
-            }
-            case simpson:{
-                Fn = Simpson(n, xi);
-                En = Simpson(2*n, xi) - Simpson(n, xi);
-                break;
-            }
-            case gaus:{
-                Fn = Gaus(n, xi);
-                En = Gaus(2*n, xi) - Gaus(n, xi);
-                break;
-            }
-        }
+        setFunctionsValue(&Fn, &F2n, &En, Fxi, n, xi);
+
+        if(abs(F2n-Fn) < minSub)
+            minSub = abs(F2n-Fn);
+
         std::cout << "| xi = " << std::setw(3) << xi;
         std::cout << " | F(xi) = " << std::setw(8) << Fxi; 
-        std::cout << " | Fn = " << std::setw(10) << Fn;
-        std::cout << " | E = " << std::setw(12) << En;
+        std::cout << " | Fn = " << std::setw(9) << Fn;
+        std::cout << " | F2n = " << std::setw(9) << F2n;
+        std::cout << " | |F2n-Fn| = " << std::setw(9) << minSub;
+        std::cout << " | E = " << std::setw(9) << En;
         std::cout << " | n = " << std::setw(3) << n << " |\n"; 
     }
     std::cout << "------------------------------------------------------------------------------\n";
+    if (minSub < Eps)
+        error = 0;
+
+    return error;
 }
 

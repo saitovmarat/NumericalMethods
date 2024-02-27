@@ -2,8 +2,9 @@
 
 int main(){
     Function func(leftRec);
-    for(int n = 10; n < 41; n++){
-        func.printTable(n);
+    double error = 1;
+    for(int n = 2; error; n*=2){
+        error = func.printTable(n);
     }
     return 0;
 }
