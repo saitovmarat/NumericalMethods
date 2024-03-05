@@ -1,8 +1,7 @@
 #include "Function.h"
 
-Function::Function(FuncType _type){
-    type = _type;
-}
+Function::Function(){}
+
 void Function::set_b(double x){
     b = x;
 }
@@ -34,16 +33,17 @@ double Function::erf(double x){
 
 // #1 Методы Левых, правых прямоугольников
 double Function::Left_Rect(int n, double x){
-    double h = (b-a)/n;
+    double h = x/n;
     double sum = 0.0;
-    for(int i = 0; i <= n-1; i++){
+    for(int i = 0; i < n; i++){
         double xi = a + i*h;
         sum += h * erf(xi);
     }
     return sum;
 }
+
 double Function::Right_Rect(int n, double x){
-    double h = (b-a)/n;
+    double h = x/n;
     double sum = 0.0;
     for(int i = 1; i <= n; i++){
         double xi = a + i*h;
@@ -54,123 +54,135 @@ double Function::Right_Rect(int n, double x){
 
 // #2 Метод Центральных прямоугольников
 double Function::Center_Rect(int n, double x){
-    double h = (b-a)/n;
+    double h = x/n;
     double sum = 0.0;
+    double xi = h/2;
     for(int i = 0; i <= n-1; i++){
-        double xi_1 = a + i*h;
-        double xi_2 = a + (i+1)*h;
-        sum += h * ((erf(xi_1) + erf(xi_2))/2);
+        sum += h * erf(xi);
+        x+=h;
     }
     return sum;
 }
 
 // #3 Метод Трапеций
 double Function::Trapezoid(int n, double x){
-    double h = (b-a)/n;
-    double sum = erf(a) + erf(b);
-    for(int i = 1; i <= n-1; i++){
-        double xi = a + i*h;
-        sum += 2*erf(xi);
+    double h = x/n;
+    double sum = 0.0;
+    double xi = 0.0;
+    for(int i = 0; i <= n-1; i++){
+        sum += h*(erf(xi) + erf(xi+h))/2;
+        xi += h;
     }
-    sum *= h/2;
     return sum;
 }
 
 // #4 Квадратная формула Симпсона 
 double Function::Simpson(int n, double x){
-    double h = (b-a)/n;
-    double sum = 0;
+    double h = x/n;
+    double sum = 0.0;
+    double xi = 0.0;
     for(int i = 0; i <= n-1; i++){
-        double xi_1 = a + i*h;
-        double xi_2 = a + (i+1)*h;
-        sum += erf(xi_1) + 4*erf((xi_1 + xi_2)/2) + erf(xi_2);
+        sum += (erf(xi) + 4 * erf(xi + h / 2) + erf(xi + h)) * h / 6;
+        xi += h;
     }
-    sum *= h/6;
     return sum;
 }
 
 // #5 Квадратная формула Гауса
 double Function::Gaus(int n, double x){
-    double h = (b-a)/n;
+    double h = x/n;
+    double num1 = (1 - 1.0 / sqrt(3)) * h / 2;
+    double num2 = (1 + 1.0 / sqrt(3)) * h / 2;
     double sum = 0;
+    double xi = 0.0;
     for(int i = 0; i <= n-1; i++){
-        double xi_1 = a + i*h;
-        double xi_2 = a + (i+1)*h;
-        sum += erf(xi_1 + ((xi_2 - xi_1)/2)*(1 - 1/sqrt(3))); 
-        sum += erf(xi_1 + ((xi_2 - xi_1)/2)*(1 + 1/sqrt(3)));
+        sum += (erf(xi + num1) + erf(x + num2)) * h/2;
+        xi += h;
     }
-    sum *= h/2;
     return sum;
 }
-
-void Function::setFunctionsValue(double* Fn, double* F2n, double* En, double Fxi, int n, double xi){
+void Function::CalculateAndWrite(double x, double y){
+    double lastJ = 0;
+    double J = 0;
+    int n = 1;
+    do
+    {
+        n *= 2;
+        lastJ = J;
+        J = calculatedFunction(n, x);
+    }
+    while (abs(lastJ - J) > 0.000001);
+    double accuracy = abs(J - y);
+    std::cout << std::setw(3) << x << " | " << std::setw(9) << y << " | " << std::setw(10) << J << " | " << std::setw(9) << accuracy << " | " << n << std::endl;
+}
+double Function::calculatedFunction(int n, double x){
+    double result = 0;
     switch(type){
         case leftRec:{
-            *Fn = Left_Rect(n, xi);
-            *F2n = Left_Rect(2*n, xi);
-            *En = abs(*(Fn)-Fxi);
+            result = Left_Rect(n, x);
             break;
         }
         case rightRec:{
-            *Fn = Right_Rect(n, xi);
-            *F2n = Right_Rect(2*n, xi);
-            *En = abs(*(Fn)-Fxi);
+            result = Right_Rect(n, x);
             break;
         }
-        case centerRect:{
-            *Fn = Center_Rect(n, xi);
-            *F2n = Center_Rect(2*n, xi);
-            *En = abs(*(Fn)-Fxi);
+        case centralRect:{
+            result = Center_Rect(n, x);
             break;
         }
         case trapezoid:{
-            *Fn = Trapezoid(n, xi);
-            *F2n = Trapezoid(2*n, xi);
-            *En = abs(*(Fn)-Fxi);
+            result = Trapezoid(n, x);
             break;
         }
         case simpson:{
-            *Fn = Simpson(n, xi);
-            *F2n = Simpson(2*n, xi);
-            *En = abs(*(Fn)-Fxi);
+            result = Simpson(n, x);
             break;
         }
-        case gaus:{
-            *Fn = Gaus(n, xi);
-            *F2n = Gaus(2*n, xi);
-            *En = abs(*(Fn)-Fxi);
+        case gauss:{
+            result = Gaus(n, x);
             break;
         }
     }
+    return result;
 }
 
-int Function::printTable(int n){
-    double minSub = 1;
-    int error = 1;
-    double h = 0.2;
-    double En, Fn, F2n;
-    std::cout << "------------------------------------------------------------------------------\n";
-    for(int i = 1; i < 11; i++){
-        double xi = a + i*h;
-        set_b(xi);
-        double Fxi = erf(xi);
-        setFunctionsValue(&Fn, &F2n, &En, Fxi, n, xi);
-
-        if(abs(F2n-Fn) < minSub)
-            minSub = abs(F2n-Fn);
-
-        std::cout << "| xi = " << std::setw(3) << xi;
-        std::cout << " | F(xi) = " << std::setw(8) << Fxi; 
-        std::cout << " | Fn = " << std::setw(9) << Fn;
-        std::cout << " | F2n = " << std::setw(9) << F2n;
-        std::cout << " | |F2n-Fn| = " << std::setw(9) << minSub;
-        std::cout << " | E = " << std::setw(9) << En;
-        std::cout << " | n = " << std::setw(3) << n << " |\n"; 
+void Function::printTable(){
+    double* x = new double[11];
+    double* y = new double[11];
+    x[0] = 0;
+    y[0] = erf(x[0]);
+    for (int i = 1; i < 11; i++){
+        x[i] = x[i - 1] + H;
+        y[i] = erf(x[i]);
     }
-    std::cout << "------------------------------------------------------------------------------\n";
-    if (minSub < Eps)
-        error = 0;
-
-    return error;
+    std::cout << "Левых прямоугольников\n";
+    set_FuncType(leftRec);
+    for (int i = 1; i < 11; i++){
+        CalculateAndWrite(x[i], y[i]);
+    }
+    std::cout << "Правых прямоугольников\n";
+    set_FuncType(rightRec);
+    for (int i = 1; i < 11; i++){
+        CalculateAndWrite(x[i], y[i]);
+    }
+    std::cout << "Центральных прямоугольников\n";
+    set_FuncType(centralRect);
+    for (int i = 1; i < 11; i++){
+        CalculateAndWrite(x[i], y[i]);
+    }
+    std::cout << "Трапеции\n";
+    set_FuncType(trapezoid);
+    for (int i = 1; i < 11; i++){
+        CalculateAndWrite(x[i], y[i]);
+    }
+    std::cout << "Симпсона\n";
+    set_FuncType(simpson);
+    for (int i = 1; i < 11; i++){
+        CalculateAndWrite(x[i], y[i]);
+    }
+    std::cout << "Гауса\n";
+    set_FuncType(gauss);
+    for (int i = 1; i < 11; i++){
+        CalculateAndWrite(x[i], y[i]);
+    }
 }
-

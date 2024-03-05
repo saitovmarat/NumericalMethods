@@ -1,12 +1,13 @@
 #include <math.h>
 #include <iostream>
 #include <iomanip>
-#define Eps pow(10, -6)
 
+#define Eps pow(10, -6)
+#define H 0.2
 
 enum FuncType{
-    leftRec, rightRec, centerRect, 
-    trapezoid, simpson, gaus
+    leftRec, rightRec, centralRect, 
+    trapezoid, simpson, gauss
 };
 
 class Function{
@@ -15,7 +16,7 @@ private:
     double b;
     FuncType type;
 public:
-    Function(FuncType _type);
+    Function();
     void set_b(double x);
     void set_FuncType(FuncType type);
     FuncType get_FuncType();
@@ -23,8 +24,9 @@ public:
     double Qn(double n, double x);
     double erf(double x);
 
-    void setFunctionsValue(double* Fn, double* F2n, double* En, double Fxi, int n, double xi);
-    int printTable(int n);
+    double calculatedFunction(int n, double x);
+    void CalculateAndWrite(double x, double y);
+    void printTable();
 
     // #1 Методы Левых и Правых прямоугольников
     double Left_Rect(int n, double x);
