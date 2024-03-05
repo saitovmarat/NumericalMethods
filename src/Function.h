@@ -25,7 +25,7 @@ public:
     double erf(double x);
 
     double calculatedFunction(int n, double x);
-    void CalculateAndWrite(double x, double y);
+    void calculateAndWrite(double x, double y);
     void printTable();
 
     // #1 Методы Левых и Правых прямоугольников
@@ -33,7 +33,7 @@ public:
     double Right_Rect(int n, double x);
 
     // #2 Метод Центральных прямоугольников
-    double Center_Rect(int n, double x);
+    double Central_Rect(int n, double x);
 
     // #3 Метод Трапеций
     double Trapezoid(int n, double x);

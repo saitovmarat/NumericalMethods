@@ -7,7 +7,7 @@ all: build compile
 rebuild: clean build compile
 
 build: Function
-	@g++ -g ../build/Function main.cpp -o ../build/main && clear
+	@g++ -g ../build/Function -g main.cpp -o ../build/main && clear
 
 Function:
 	@g++ -c -g Function.cpp -o ../build/Function
