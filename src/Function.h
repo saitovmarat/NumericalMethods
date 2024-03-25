@@ -3,6 +3,8 @@
 #include <iomanip>
 
 #define Eps pow(10, -6)
+#define a 0
+#define b 2
 #define H 0.2
 
 enum FuncType{
@@ -12,14 +14,11 @@ enum FuncType{
 
 class Function{
 private:
-    const int a = 0;
-    double b;
     FuncType type;
 public:
-    Function();
-    void set_b(double x);
+    Function() = default;
+
     void set_FuncType(FuncType type);
-    FuncType get_FuncType();
 
     double Qn(double n, double x);
     double erf(double x);

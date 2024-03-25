@@ -1,16 +1,9 @@
 #include "Function.h"
 
-Function::Function(){}
-
-void Function::set_b(double x){
-    b = x;
-}
 void Function::set_FuncType(FuncType typeToCopy){
     type = typeToCopy;
 }
-FuncType Function::get_FuncType(){
-    return type;
-}
+
 double Function::Qn(double n, double x){
     return -(((x * x) / (n + 1)) * ((2 * n + 1) / (2 * n + 3)));
 }
@@ -105,15 +98,14 @@ void Function::calculateAndWrite(double x, double y){
     double lastJ = 0;
     double J = 0;
     int n = 1;
-    do
-    {
+    do{
         n *= 2;
         lastJ = J;
         J = calculatedFunction(n, x);
     }
-    while (abs(lastJ - J) > 0.000001);
+    while (abs(lastJ - J) > Eps);
     double accuracy = abs(J - y);
-    std::cout << std::setw(3) << x << " | " << std::setw(9) << y << " | " << std::setw(10) << J << " | " << std::setw(12) << accuracy << " | " << n << std::endl;
+    std::cout << std::setw(3) << x << " | " << std::setw(9) << y << " | " << std::setw(9) << J << " | " << std::setw(9) << accuracy << " | " << n << std::endl;
 }
 double Function::calculatedFunction(int n, double x){
     double result = 0.0;
@@ -154,32 +146,32 @@ void Function::printTable(){
         x[i] = x[i - 1] + H;
         y[i] = erf(x[i]);
     }
-    std::cout << "Left Rectangle\n";
+    std::cout << "\033[1m" << "\033[3m" << "Left Rectangle\n" << "\033[0m";
     set_FuncType(leftRec);
     for (int i = 1; i < 11; i++){
         calculateAndWrite(x[i], y[i]);
     }
-    std::cout << "Right Rectangle\n";
+    std::cout << "\033[1m" << "\033[3m" << "Right Rectangle\n" << "\033[0m";
     set_FuncType(rightRec);
     for (int i = 1; i < 11; i++){
         calculateAndWrite(x[i], y[i]);
     }
-    std::cout << "Central Rectangle\n";
+    std::cout << "\033[1m" << "\033[3m" << "Central Rectangle\n" << "\033[0m";
     set_FuncType(centralRect);
     for (int i = 1; i < 11; i++){
         calculateAndWrite(x[i], y[i]);
     }
-    std::cout << "Trapezoid\n";
+    std::cout << "\033[1m" << "\033[3m" << "Trapezoid\n"<< "\033[0m";
     set_FuncType(trapezoid);
     for (int i = 1; i < 11; i++){
         calculateAndWrite(x[i], y[i]);
     }
-    std::cout << "Simpson\n";
+    std::cout << "\033[1m" << "\033[3m" << "Simpson\n" << "\033[0m";
     set_FuncType(simpson);
     for (int i = 1; i < 11; i++){
         calculateAndWrite(x[i], y[i]);
     }
-    std::cout << "Gauss\n";
+    std::cout << "\033[1m" << "\033[3m" << "Gauss\n" << "\033[0m";
     set_FuncType(gauss);
     for (int i = 1; i < 11; i++){
         calculateAndWrite(x[i], y[i]);
