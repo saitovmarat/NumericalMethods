@@ -6,11 +6,11 @@ all: build compile
 
 rebuild: clean build compile
 
-build:
+build: 
 	@g++ main.cpp -o ../build/main
 
 compile:
 	@../build/main
 
 clean:
-	@rm -rf main *.out
+	@rm -rf build 

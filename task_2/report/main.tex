@@ -1,0 +1,403 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian,english]{babel}
+\usepackage{amsmath}
+\usepackage{cmap}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage[left=3cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}
+\lstset{
+    language=C++,
+    basicstyle=\small\ttfamily,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!40!black},
+    stringstyle=\color{purple},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{gray!10},
+    rulecolor=\color{black!30},
+    showstringspaces=false,
+    extendedchars=\true, % Включение расширенных символов, включая русский текст
+}
+\begin{document}
+
+\begin{center}
+\hfill \break
+\textbf{\large{Министерство науки и высшего образования Российской Федерации\\
+Федеральное государственное автономное образовательное\\
+учреждение высшего образования}}
+\\
+\large{\textbf{«КАЗАНСКИЙ (ПРИВОЛЖСКИЙ) ФЕДЕРАЛЬНЫЙ УНИВЕРСИТЕТ»}}\\
+\hfill \break
+\large{ИНСТИТУТ ВЫЧИСЛИТЕЛЬНОЙ МАТЕМАТИКИ\\ И ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ}\\
+ \hfill \break
+\large{Кафедра прикладной математики и искусственого интеллекта}\\
+\hfill\break
+\hfill \break
+\large{Направление подготовки: 01.03.04 – Прикладная математика}\\
+\hfill \break
+\hfill \break
+\textbf{\large{ОТЧЁТ}}\\
+\large{По дисциплине <<Численные методы>>}\\
+\large{на тему:}\\
+\large{<<Вычисление интеграла с помощью квадратурных формул>>}\\
+\hfill \break
+\hfill \break
+\end{center}
+
+\hfill \break
+\begin{flushright}
+			
+    \large{Выполнил:}
+    
+    \large{студент группы 09-222}
+    
+    \large{Саитов М.А.}
+    
+    \large{Проверил:}
+    
+    \large{ассистент Глазырина О.В.}
+    
+\end{flushright}
+\vfill
+\begin{center} \large{Казань, 2024 год} \end{center}
+\thispagestyle{empty}
+ 
+
+\newpage
+\begin{center}
+\renewcommand{\contentsname}{Содержание}
+\fontsize{14}{1.15}\selectfont
+\mdseries\selectfont{\tableofcontents}
+\newpage
+\end{center}
+\setlength{\parindent}{1.25cm}
+\newpage
+\selectfont\onehalfspacing{
+\section{Постановка задачи}
+\hspace{1.25cm}Необходимо изучить и сравнить различные способы приближённого вычисления функции ошибок
+\begin{equation}
+    \text{erf}(x) =\displaystyle\frac{2}{\sqrt{\pi}} \displaystyle\int\limits_{0}^{x} e^{-t^2} dt
+\end{equation}
+\begin{enumerate}
+    \item Протабулировать erf(x) на отрезке [a,b] с шагом h и точностью $ \varepsilon$, основываясь на ряде Маклорена,
+     предварительно вычислив его. Получив таким образом таблицу из 11 точек вида:
+    %  \begin{equation}
+    %     \text{erf}(x) =\displaystyle\frac{2}{\sqrt{\pi}} \displaystyle\sum\limits_{n=1}^{\infty}(-1)^n\displaystyle\frac{x^{2n+1}}{n!(2n+1)}
+    %  \end{equation} Получив таким образом таблицу из 11 точек
+    \begin{tabbing}
+        $x_0$ \= $x_1$ \= $x_2$ \= \dots\\
+        $f_0$ \> $f_1$ \> $f_2$ \> \dots\\
+    \end{tabbing}
+    $f_i = \text{erf}(x_i), \quad x_i = a + i  h, \quad i = 0,\dots,n.$
+    \item {Вычислить erf(x) при помощи пяти составных квадратурных формул при\\
+     $h=(x_{i+1} - x_i)$:
+        \begin{enumerate}
+            \item {
+                Формула правых прямоугольников:
+                \begin{equation}
+                    J_N(x) = \displaystyle\sum_{i=1}^{n}h g(x_i)
+                \end{equation}
+                }
+            \item {
+                Формула центральных прямоугольников:
+                \begin{equation}
+                    J_N(x) = \displaystyle\sum_{i=1}^{n}h g\left(\displaystyle\frac{x_i + x_{i+1}}{2}\right) 
+                \end{equation}
+                }
+            \item {
+                Формула трапеции:
+                \begin{equation}
+                    J_N(x) = \displaystyle\sum_{i=1}^{n}h \displaystyle\frac{g(x_i)+g(x_{i+1})}{2}
+                \end{equation}
+                }
+            \item {
+                Формула Симпсона:
+                \begin{equation}
+                    J_N(x) = \displaystyle\sum_{i=1}^{n}\displaystyle\frac{h}{6} \left[g(x_i)+4g\left(
+                        \displaystyle\frac{x_i + x_{i+1}}{2}
+                    \right) + g(x_{i+1}) \right]
+                \end{equation}
+                }
+            \item {
+                Формула Гаусса:
+                \begin{equation}
+                    J_N(x) = \displaystyle\sum_{i=1}^{n}\displaystyle\frac{h}{2} \left[g\left(
+                        x_i + \displaystyle\frac{h}{2}\left(1 - \displaystyle\frac{1}{\sqrt{3}} \right)
+                    \right) +
+                    g\left(
+                        x_i + \displaystyle\frac{h}{2}\left(1 + \displaystyle\frac{1}{\sqrt{3}} \right)
+                    \right)
+                    \right]
+                \end{equation}
+                }
+        \end{enumerate}
+    }
+\end{enumerate}
+
+Вычисления проводятся от начала интегрирования до каждой из 11 точек, увели\-чивая количество разбиений между точками в 2 раза до тех пор, пока погрешность больше $\varepsilon$.
+\newpage
+\section{Ход работы}
+\hspace*{1.25cm}Для того чтобы найти значение функции в точке, необходимо протабулировать искомый интеграл на отрезке [a, b] с шагом $h = 0.2$ и точностью $\varepsilon$. Для этого:
+\begin{enumerate}
+    \item Найдём разбиение подинтегральной функции $e^{-t^2}$ в ряд Маклорена, подставив в стандартное разбиение функции $e^x$ в ряд Маклорена $x = -t^2$:
+    \begin{equation}
+        e^x = \sum_{n = 0}^{\infty}\frac{x^n}{n!} \implies e^{-t^2} = \sum_{n = 0}^{\infty}\frac{(-1)^n t^{2n}}{n!}
+    \end{equation}
+    \item Проинтегрируем полученное выражение на интеграле [0, x]:
+    \begin{equation}
+        \frac{2}{\sqrt{\pi}}\int\limits_{0}^{x}\sum_{n = 0}^{\infty}\frac{(-1)^n t^{2n}}{n!}\mathrm{d}t = \frac{2}{\sqrt{\pi}}\left.\sum_{n = 0}^{\infty}\frac{(-1)^n t^{2n+1}}{(2n-1)n!}\right|_{0}^{x} = \frac{2}{\sqrt{\pi}}\sum_{n = 0}^{\infty}\frac{(-1)^n x^{2n+1}}{(2n-1)n!}
+    \end{equation}
+    \item Выделим два общих члена $a_n, \; a_{n + 1}$ из полученного выражения и найдём\\ $q_n = \dfrac{a_{n+1}}{a_n}$:
+    \begin{equation}
+        a_{n}=\frac{(-1)^{n}x^{2n+1}}{n!(2n+1)}, \quad a_{n+1}=\frac{(-1)^{n+1}x^{2n+3}}{(n+1)!(2n+3)}.
+    \end{equation}
+    \begin{equation}
+        q_{n}=\frac{-x^{2}(2n+1)}{(n+1)(2n+3)}.
+    \end{equation}
+\end{enumerate}
+Таким образом,
+\begin{equation}
+	a_{n}=a_{0}\prod_{n=0}^{n-1} q_{n}.
+\end{equation}
+Для каждой точки $x_i = a + i  h$ найдём значение $erf(x_i)$ и составим таблицу результатов (Таблица 1).
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        $x_i$ & $erf(x_i)$\\
+        \hline
+        0,0 & 0,0000000000\\
+        \hline
+        0,2 & 0,2227025926\\
+        \hline
+        0,4 & 0,4283923805\\
+        \hline
+        0,6 & 0,6038561463\\
+        \hline
+        0,8 & 0,7421009541\\
+        \hline
+        1,0 & 0,8427006602\\
+        \hline
+        1,2 & 0,9103140831\\
+        \hline
+        1,4 & 0,9522852302\\
+        \hline
+        1,6 & 0,9763484001\\
+        \hline
+        1,8 & 0,9890906215\\
+        \hline
+        2,0 & 0,9953226447\\
+        \hline
+    \end{tabular}
+    \caption*{\small{Таблица 1 - точки $x_i$ и значения разложения в ряд Маклорена функции $erf(x_i)$}}
+\end{table}
+\clearpage
+После нахождения значений разложения в ряд Маклорена в точках, вычислим значение erf(x) при помощи 5 составных квадратурных формул. Для каждой формулы составим свою таблицу. В таблицах будут находится значения точки, для которой производились расчёты, значение разбиения в ряд Маклорена в точке, значение найден\-ного с помощью формулы интеграла в точке, модуль разницы между значениями найде\-нного интеграла и разбиения, количества разбиений, которые пришлось совершить для нахожде\-ния значения интеграла с нужной точностью.
+\begin{enumerate}[label = \arabic*.]
+    \item {Правые прямоугольники:
+        \begin{table}[h]
+          \centering
+          \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            $x_i$ & $J_0(x_i)$ & $J_(x_i)$ & $\left|J_0(x_i) - J_N(x_i)\right|$ & $N$\\
+            \hline
+            0,0 & 0,0000000000 & 0,0000000000 & 0,0000000000 & 2\\
+            \hline
+            0,2 & 0,2227025926 & 0,2226983160 & 0,0000042766 & 1024\\
+            \hline
+            0,4 & 0,4283923805 & 0,4283596873 & 0,0000326931 & 1024\\
+            \hline
+            0,6 & 0,6038561463 & 0,6037563682 & 0,0000997782 & 1024\\
+            \hline
+            0,8 & 0,7421009541 & 0,7418920994 & 0,0002088547 & 1024\\
+            \hline
+            1,0 & 0,8427006602 & 0,8423525691 & 0,0003480911 & 1024\\
+            \hline
+            1,2 & 0,9103140831 & 0,9098084569 & 0,0005056262 & 1024\\
+            \hline
+            1,4 & 0,9522852302 & 0,9516219497 & 0,0006632805 & 1024\\
+            \hline
+            1,6 & 0,9763484001 & 0,9764841199 & 0,0001357198 & 1024\\
+            \hline
+            1,8 & 0,9890906215 & 0,9891686440 & 0,0000780225 & 1024\\
+            \hline
+            2,0 & 0,9953226447 & 0,9953628182 & 0,0000401735 & 1024\\
+            \hline
+          \end{tabular}
+          \caption*{\small{Таблица 2 - таблица значений для формулы Правых прямоугольников}}
+        \end{table}
+    }
+    \item {Центральные прямоугольники:
+        \begin{table}[h]
+          \centering
+          \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            $x_i$ & $J_0(x_i)$ & $J_(x_i)$ & $\left|J_0(x_i) - J_N(x_i)\right|$ & $N$\\
+            \hline
+            0,0 & 0,0000000000 & 0,0000000000 & 0,0000000000 & 2\\
+            \hline
+            0,2 & 0,2227025926 & 0,2227027565 & 0,0000001639 & 64\\
+            \hline
+            0,4 & 0,4283923805 & 0,4283923209 & 0,0000000596 & 256\\
+            \hline
+            0,6 & 0,6038561463 & 0,6038563848 & 0,0000002384 & 256\\
+            \hline
+            0,8 & 0,7421009541 & 0,7421010733 & 0,0000001192 & 512\\
+            \hline
+            1,0 & 0,8427006602 & 0,8427013755 & 0,0000007153 & 512\\
+            \hline
+            1,2 & 0,9103140831 & 0,9103139043 & 0,0000001788 & 512\\
+            \hline
+            1,4 & 0,9522852302 & 0,9522854686 & 0,0000002384 & 512\\
+            \hline
+            1,6 & 0,9763484001 & 0,9763489366 & 0,0000005364 & 256\\
+            \hline
+            1,8 & 0,9890906215 & 0,9890908003 & 0,0000001788 & 512\\
+            \hline
+            2,0 & 0,9953226447 & 0,9953227639 & 0,0000001192 & 256\\
+            \hline
+          \end{tabular}
+          \caption*{\small{Таблица 3 - таблица значений для формулы Центральных прямоугольников}}
+        \end{table}
+        \clearpage
+    }
+    \item {Формула трапеций:
+        \begin{table}[h]
+          \centering
+          \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            $x_i$ & $J_0(x_i)$ & $J_(x_i)$ & $\left|J_0(x_i) - J_N(x_i)\right|$ & $N$\\
+            \hline
+            0,0 & 0,0000000000 & 0,0000000000 & 0,0000000000 & 2\\
+            \hline
+            0,2 & 0,2227025926 & 0,2229140997 & 0,0002115071 & 128\\
+            \hline
+            0,4 & 0,4283923805 & 0,4287676811 & 0,0003753006 & 512\\
+            \hline
+            0,6 & 0,6038561463 & 0,6043169498 & 0,0004608035 & 512\\
+            \hline
+            0,8 & 0,7421009541 & 0,7425656319 & 0,0004646778 & 512\\
+            \hline
+            1,0 & 0,8427006602 & 0,8431062102 & 0,0004055500 & 512\\
+            \hline
+            1,2 & 0,9103140831 & 0,9106265903 & 0,0003125072 & 512\\
+            \hline
+            1,4 & 0,9522852302 & 0,9525024891 & 0,0002172589 & 512\\
+            \hline
+            1,6 & 0,9763484001 & 0,9764841199 & 0,0001357198 & 512\\
+            \hline
+            1,8 & 0,9890906215 & 0,9891686440 & 0,0000780225 & 512\\
+            \hline
+            2,0 & 0,9953226447 & 0,9953628182 & 0,0000401735 & 512\\
+            \hline
+          \end{tabular}
+          \caption*{\small{Таблица 4 - таблица значений для формулы Трапеций}}
+        \end{table}
+    }
+    \item Формула Симпсона
+        \begin{enumerate}
+            \item {Вывод формулы Симпсона через интегральный полином Лагранжа:\\
+            Формула для полинома Лагранжа:
+            \begin{equation}
+                L_n(x) = \sum_{i=0}^{n}f(x_i)\prod_{i \ne j, j = 0}^{n}\frac{x - x_j}{x_i - x_j}
+            \end{equation}
+            По трём узлам $(x_1 = a, x_2 = \dfrac{a+b}{2}, x_3 = b):
+            L_2 = f(a)\left(\dfrac{x - \dfrac{a+b}{2}}{a - \dfrac{a+b}{2}}\right)\left(\dfrac{x - b}{a - b}\right)+\\
+            f\left(\dfrac{a +b}{2}\right)\left(\dfrac{x-a}{\dfrac{a+b}{2} - a}\right)\left(\dfrac{x-b}{\dfrac{a+b}{2} - b}\right)+ f(b)\left(\dfrac{x - \dfrac{a+b}{2}}{b - \dfrac{a+b}{2}}\right)\left(\dfrac{x - b}{b - a}\right).$\\
+            \hfill\break
+            Проинтегрируем выражение по интервалу [a,b]:
+            \begin{equation}
+                \int\limits_{a}^{b}L_2(x)\mathrm{d}x = f(a)c_1 + f\left(\frac{a+b}{2}\right)c_2 + f(b)c_3
+            \end{equation}
+            где $c_1 = \dfrac{b-a}{6}, c_2 = \dfrac{2}{3}(b - a), c_3 = \dfrac{b-a}{6}.$\\
+            \hfill\break
+            Тогда:
+            \begin{equation}
+                \int\limits_{a}^{b}L_2(x)\mathrm{d}x = \frac{b-a}{6}\left(f(a) + 4f\left(\frac{a+b}{2}\right)+f(b)\right)
+            \end{equation}
+            \clearpage
+            }
+            \item {Значения полученные для формулы Симпсона:
+            \begin{table}[h]
+            \centering
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                $x_i$ & $J_0(x_i)$ & $J_(x_i)$ & $\left|J_0(x_i) - J_N(x_i)\right|$ & $N$\\
+                \hline
+                0,0 & 0,0000000000 & 0,0000000000 & 0,0000000000 & 2\\
+                \hline
+                0,2 & 0,2227025926 & 0,2227026075 & 0,0000000149 & 2\\
+                \hline
+                0,4 & 0,4283923805 & 0,4283923805 & 0,0000000000 & 4\\
+                \hline
+                0,6 & 0,6038561463 & 0,6038562059 & 0,0000000596 & 8\\
+                \hline
+                0,8 & 0,7421009541 & 0,7421009541 & 0,0000000000 & 8\\
+                \hline
+                1,0 & 0,8427006602 & 0,8427007794 & 0,0000001192 & 16\\
+                \hline
+                1,2 & 0,9103140831 & 0,9103139639 & 0,0000001192 & 16\\
+                \hline
+                1,4 & 0,9522852302 & 0,9522852302 & 0,0000000000 & 8\\
+                \hline
+                1,6 & 0,9763484001 & 0,9763483405 & 0,0000000596 & 16\\
+                \hline
+                1,8 & 0,9890906215 & 0,9890906215 & 0,0000000000 & 32\\
+                \hline
+                2,0 & 0,9953226447 & 0,9953221679 & 0,0000004768 & 32\\
+                \hline
+            \end{tabular}
+            \caption*{\small{Таблица 5 - таблица значений для формулы Симпсона}}
+            \end{table}
+            }
+        \end{enumerate}
+    \item {Формула Гаусса:
+        \begin{table}[h]
+          \centering
+          \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            $x_i$ & $J_0(x_i)$ & $J_(x_i)$ & $\left|J_0(x_i) - J_N(x_i)\right|$ & $N$\\
+            \hline
+            0,0 & 0,0000000000 & 0,0000000000 & 0,0000000000 & 2\\
+            \hline
+            0,2 & 0,2227025926 & 0,2227025777 & 0,0000000149 & 2\\
+            \hline
+            0,4 & 0,4283923805 & 0,4283923209 & 0,0000000596 & 4\\
+            \hline
+            0,6 & 0,6038561463 & 0,6038560867 & 0,0000000596 & 8\\
+            \hline
+            0,8 & 0,7421009541 & 0,7421008945 & 0,0000000596 & 8\\
+            \hline
+            1,0 & 0,8427006602 & 0,8427007794 & 0,0000001192 & 16\\
+            \hline
+            1,2 & 0,9103140831 & 0,9103140235 & 0,0000000596 & 16\\
+            \hline
+            1,4 & 0,9522852302 & 0,9522851706 & 0,0000000596 & 8\\
+            \hline
+            1,6 & 0,9763484001 & 0,9763484001 & 0,0000000000 & 16\\
+            \hline
+            1,8 & 0,9890906215 & 0,9890905023 & 0,0000001192 & 32\\
+            \hline
+            2,0 & 0,9953226447 & 0,9953223467 & 0,0000002980 & 32\\
+            \hline
+          \end{tabular}
+          \caption*{\small{Таблица 6 - таблица значений для формулы Гаусса}}
+        \end{table}
+    }
+\end{enumerate}
+\section{Выводы}
+\hspace{1.25cm}Проделав все вычисления, можно сделать выводы, что более комплексные методы вычисления интеграла, как формула Гаусса и Симпсона, показыают наилучшие результа\-ты за меньшее количество разбиений. В это же время худшие результаты вычисления показыают методы правых прямоугольников и метод трапеций, приводя к довольно большому значению ошибки.}
+\clearpage
+\section{Листинг программы}
+\lstinputlisting[language=C++]{../src/Function.cpp}
+\end{document}
