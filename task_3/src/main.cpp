@@ -1,9 +1,11 @@
-#include "sweepMethod.hpp"
+#include "methods.hpp"
 
 int main(){
-    for(int i = 10; i <= 20; i++){
+    for(int i = 10; i <= 10; i++){
         SweepMethod_tableOutput(i);
-        std::cout << "---\n";
+        YakobiMethod_tableOutput(i);
+        ZeidelMethod_tableOutput(i);
+        relaxationMethod_tableOutput(i);
     }
     return 0;
 }
