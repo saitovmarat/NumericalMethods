@@ -22,65 +22,61 @@ double Function::erf(double x){
     return result;
 }
 
-// #1 Метод левых прямоугольников 
+float func(float t) { return (2 / sqrt(M_PI)) * pow(std::exp(1.0), -(t * t)); }
+
 double Function::Left_Rect(int n, double x){
     double h = x/n;
     double sum = 0.0;
     for(int i = 0; i < n; i++){
         double xi = a + i*h;
-        sum += h * erf(xi);
+        sum += h * func(xi);
     }
     return sum;
 }
 
-// #2 Метод правых прямоугольников
 double Function::Right_Rect(int n, double x){
     double h = x/n;
     double sum = 0.0;
     for(int i = 1; i <= n; i++){
         double xi = a + i*h;
-        sum += h * erf(xi);
+        sum += h * func(xi);
     }
     return sum;
 }
 
-// #3 Метод Центральных прямоугольников
 double Function::Central_Rect(int n, double x){
     double h = x/n;
     double sum = 0.0;
     double xi = h/2;
     for(int i = 0; i <= n-1; i++){
-        sum += h * erf(xi);
+        sum += h * func(xi);
         xi+=h;
     }
     return sum;
 }
 
-// #4 Метод Трапеций
 double Function::Trapezoid(int n, double x){
     double h = x/n;
     double sum = 0.0;
     double xi = 0.0;
     for(int i = 0; i <= n-1; i++){
-        sum += h*(erf(xi) + erf(xi+h))/2;
+        sum += h*(func(xi) + func(xi+h))/2;
         xi += h;
     }
     return sum;
 }
 
-// #5 Квадратная формула Симпсона 
 double Function::Simpson(int n, double x){
     double h = x/n;
     double sum = 0.0;
     double xi = 0.0;
     for(int i = 0; i <= n-1; i++){
-        sum += (erf(xi) + 4 * erf(xi + h / 2) + erf(xi + h)) * h / 6;
+        sum += (func(xi) + 4 * func(xi + h / 2) + func(xi + h)) * h / 6;
         xi += h;
     }
     return sum;
 }
 
-// #6 Квадратная формула Гауса
 double Function::Gaus(int n, double x){
     double h = x/n;
     double num1 = (1 - 1.0 / sqrt(3)) * h / 2;
@@ -88,7 +84,7 @@ double Function::Gaus(int n, double x){
     double sum = 0;
     double xi = 0.0;
     for(int i = 0; i <= n-1; i++){
-        sum += (erf(xi + num1) + erf(xi + num2)) * h/2;
+        sum += (func(xi + num1) + func(xi + num2)) * h/2;
         xi += h;
     }
     return sum;
@@ -103,9 +99,9 @@ void Function::calculateAndWrite(double x, double y){
         lastJ = J;
         J = calculatedFunction(n, x);
     }
-    while (abs(lastJ - J) > Eps);
+    while (abs(lastJ - J) > Eps && n < 1024);
     double accuracy = abs(J - y);
-    std::cout << std::setw(3) << x << " | " << std::setw(9) << y << " | " << std::setw(9) << J << " | " << std::setw(9) << accuracy << " | " << n << std::endl;
+    std::cout << std::setw(3) << x << " & " << std::setw(9) << y << " & " << std::setw(9) << J << " & " << std::setw(11) << accuracy << " & " << n << std::endl;
 }
 double Function::calculatedFunction(int n, double x){
     double result = 0.0;

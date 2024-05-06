@@ -10,7 +10,7 @@ build:
 	@g++ main.cpp -o ../build/main
 
 compile:
-	@../build/main
+	@clear && ../build/main
 
 clean:
-	@rm -rf build 
+	@rm -rf ../build 

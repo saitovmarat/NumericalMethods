@@ -24,14 +24,15 @@ void printTable(int n, const std::vector<double> y, const std::vector<double> u)
     for(int i = 1; i < n; i++){
         double ui = u[i];
         double yi = y[i];
-        std::cout << std::setw(12) << i*h << " | " << std::setw(12) << yi << " | " 
-            << std::setw(12) << ui << " | " << std::setw(12) <<abs(yi - ui) << std::endl;
+        std::cout  << i*h << " & " << std::setw(12) << yi << " & " 
+            << std::setw(12) << ui << " & " << std::setw(12) << abs(yi - ui) << "\\\\" << std::endl;
+        std::cout << "\\hline\n";
     }
 
 }
 void SweepMethod_tableOutput(int n){
+    std::cout << "\033[1m" << "\033[3m" << "Sweep Method\n" << "\033[0m";
     double h = 1.0 / n;
-    // Counting Alpha and Betta
     std::vector<double> alpha(n+1);
     std::vector<double> betta(n+1);
     for(int i = 2; i <= n; i++){
@@ -40,24 +41,21 @@ void SweepMethod_tableOutput(int n){
         betta[i] = (f(i-1, h)*pow(h,2) + betta[i-1] * a(i-1, h))/
             ((1 - alpha[i-1]) * a(i-1, h) + a(i, h) + pow(h, 2) * g(i-1, h));
     }
-    // Counting Y
     std::vector<double> y(n+1);
     y[n] = 0;
     for(int i = n-1; i > 0; i--){
         y[i] = alpha[i+1] * y[i+1] + betta[i+1];
     }
-    // Counting U
     std::vector<double> u(n);
     for(int i = 1; i < n; i++){
         u[i] = pow(i*h, 4) * (1 - (i*h));
     }
-    //Printing Table
-    std::cout << "\033[1m" << "\033[3m" << "Sweep Method\n" << "\033[0m";
     printTable(n, y, u);
     std::cout << "---\n";
 }
 
 void YakobiMethod_tableOutput(int n){
+    std::cout << "\033[1m" << "\033[3m" << "Yakobi Method\n" << "\033[0m";
     double h = 1.0/n;
     double eps = pow(h, 3);
     std::vector<double> y_k(n);
@@ -73,16 +71,16 @@ void YakobiMethod_tableOutput(int n){
             y_k_1[i] = (a(i, h)*y_k[i-1] + a(i+1, h)*y_k[i+1] + f(i, h)*pow(h, 2))
                 /(denominator(i, h));
             u[i] = pow(i*h, 4) * (1 - (i*h));
-            if(i == 1) r = fabs((y_k_1[i] - y_k[i])/y_k_1[i]);
+            if(i == 1) r = fabs((y_k_1[i] - y_k[i]) / y_k_1[i]);
             else r = std::max(fabs((y_k_1[i] - y_k[i]) / y_k_1[i]), r);
         }
     } 
-    std::cout << "\033[1m" << "\033[3m" << "Yakobi Method\n" << "\033[0m";
     printTable(n, y_k_1, u);
     std::cout << "---\n";
 }
 
 void ZeidelMethod_tableOutput(int n){
+    std::cout << "\033[1m" << "\033[3m" << "Zeidel Method\n" << "\033[0m";
     double h = 1.0/n;
     double eps = pow(h, 3);
     std::vector<double> y_k(n);
@@ -102,7 +100,6 @@ void ZeidelMethod_tableOutput(int n){
             else r = std::max(fabs((y_k_1[i] - y_k[i]) / y_k_1[i]), r);
         }
     } 
-    std::cout << "\033[1m" << "\033[3m" << "Zeidel Method\n" << "\033[0m";
     printTable(n, y_k_1, u);
     std::cout << "---\n";
 }
@@ -134,8 +131,35 @@ void relaxationMethod_tableOutput(int n){
             k++;
         } 
         r = 1;
-        std::cout << std::setw(3) << w << " | " << k << std::endl;
+        std::cout << std::setw(3) << w << " & " << k << "\\\\" << std::endl;
+        std::cout << "\\hline\n";
     }
     std::cout << "---\n";
 
+}
+
+// ???
+void descentMethod_tableOutput(int n){
+    std::cout << "\033[1m" << "\033[3m" << "Descent Method\n" << "\033[0m";
+    double h = 1.0 / n;
+    double eps = pow(h, 3);
+    std::vector<double> y_k(n);
+    for(int i = 1; i < n-1; i++){
+        y_k[i] = f(i, h)*pow(h,2) / denominator(i, h);
+    }
+    double r = 1;
+    std::vector<double> y_k_1(n);
+    std::vector<double> u(n);
+    while(fabs(r) > eps){
+        y_k = y_k_1;
+        for(int i = 1; i < n; i++){ 
+            y_k_1[i] = (a(i, h)*y_k[i-1] + a(i+1, h)*y_k[i+1] + f(i, h)*pow(h, 2))
+                /(denominator(i, h));
+            u[i] = pow(i*h, 4) * (1 - (i*h));
+            if(i == 1) r = fabs((y_k_1[i] - y_k[i])/y_k_1[i]);
+            else r = std::max(fabs((y_k_1[i] - y_k[i]) / y_k_1[i]), r);
+        }
+    }
+    printTable(n, y_k_1, u);
+    std::cout << "---\n";
 }

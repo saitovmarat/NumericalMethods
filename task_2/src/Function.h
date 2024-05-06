@@ -27,19 +27,10 @@ public:
     void calculateAndWrite(double x, double y);
     void printTable();
 
-    // #1 Методы Левых и Правых прямоугольников
     double Left_Rect(int n, double x);
     double Right_Rect(int n, double x);
-
-    // #2 Метод Центральных прямоугольников
     double Central_Rect(int n, double x);
-
-    // #3 Метод Трапеций
     double Trapezoid(int n, double x);
-
-    // #4 Квадратная формула Симпсона 
     double Simpson(int n, double x);
-
-    // #5 Квадратная формула Гауса
     double Gaus(int n, double x);
 };
