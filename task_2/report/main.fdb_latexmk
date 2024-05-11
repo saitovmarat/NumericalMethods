@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1715009387 "/home/ubuntu/Projects/University/NumericalMethods/task_2/report/main.tex" "main.pdf" "main" 1715009387
+["pdflatex"] 1715441250 "/home/ubuntu/Projects/University/NumericalMethods/task_2/report/main.tex" "main.pdf" "main" 1715441251
   "../src/Function.cpp" 1714936578 4451 e531f05f57c3a49c56a4560fb727a456 ""
   "../src/Function.h" 1714936664 740 9503773c8582a74210854a585ee360a2 ""
   "../src/main.cpp" 1714935727 87 6b54823ea08244c2b8cbb0e28e068dd7 ""
@@ -21,7 +21,7 @@
   "/home/ubuntu/.texlive2021/texmf-var/fonts/tfm/lh/lh-t2a/larm1440.tfm" 1714739033 3256 3daaa33cf35cf3f354983aa3214ecd7f ""
   "/home/ubuntu/.texlive2021/texmf-var/fonts/tfm/lh/lh-t2a/larm1728.tfm" 1714739034 3252 92d08740ce00199d6cf9ff4aaada81d1 ""
   "/home/ubuntu/.texlive2021/texmf-var/fonts/tfm/lh/lh-t2a/latt1095.tfm" 1714746941 1276 e8f51803ab84b07f08acd5c6da2228c8 ""
-  "/home/ubuntu/Projects/University/NumericalMethods/task_2/report/main.tex" 1715009386 19874 322e164e21eb7d8d293570d7e9ed4f65 ""
+  "/home/ubuntu/Projects/University/NumericalMethods/task_2/report/main.tex" 1715441249 19955 7c085160324a89f23b76f45a10f239f6 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -98,9 +98,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1712527115 4039269 0eb0d0974b6f8f41bdd5da49d5616c1b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1712527119 1481508 a66afc28e9c7816bf8a87c34c81b1892 ""
-  "main.aux" 1715009387 1388 372a5c5752e2c91c52d307216e06d6c4 "pdflatex"
-  "main.tex" 1715009386 19874 322e164e21eb7d8d293570d7e9ed4f65 ""
-  "main.toc" 1715009387 841 4fc4f7cff8cf5292878b546d987b7ded "pdflatex"
+  "main.aux" 1715441251 1391 bdffc7754a297a40cb8254ad4ed7bc47 "pdflatex"
+  "main.tex" 1715441249 19955 7c085160324a89f23b76f45a10f239f6 ""
+  "main.toc" 1715441251 842 375d900db4a5702629b0344a0abbfa2f "pdflatex"
   (generated)
   "main.aux"
   "main.log"
