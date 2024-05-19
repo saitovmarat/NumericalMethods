@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.8)  11 MAY 2024 18:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.8)  20 MAY 2024 02:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -218,6 +218,19 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
 ) (/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+)
+\Gin@req@height=\dimen174
+\Gin@req@width=\dimen175
 ) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
@@ -228,14 +241,14 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 \Gm@cnth=\count290
 \Gm@cntv=\count291
 \c@Gm@tempcnt=\count292
-\Gm@bindingoffset=\dimen174
-\Gm@wd@mp=\dimen175
-\Gm@odd@mp=\dimen176
-\Gm@even@mp=\dimen177
-\Gm@layoutwidth=\dimen178
-\Gm@layoutheight=\dimen179
-\Gm@layouthoffset=\dimen180
-\Gm@layoutvoffset=\dimen181
+\Gm@bindingoffset=\dimen176
+\Gm@wd@mp=\dimen177
+\Gm@odd@mp=\dimen178
+\Gm@even@mp=\dimen179
+\Gm@layoutwidth=\dimen180
+\Gm@layoutheight=\dimen181
+\Gm@layouthoffset=\dimen182
+\Gm@layoutvoffset=\dimen183
 \Gm@dimlist=\toks29
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
@@ -250,26 +263,26 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
  (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
-LaTeX Info: Redefining \th on input line 31.
+LaTeX Info: Redefining \th on input line 32.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
@@ -277,17 +290,22 @@ Package caption Info: End \AtBeginDocument code.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count295
-\scratchdimen=\dimen182
+\scratchdimen=\dimen184
 \scratchbox=\box56
 \nofMPsegments=\count296
 \nofMParguments=\count297
 \everyMPshowfont=\toks30
 \MPscratchCnt=\count298
-\MPscratchDim=\dimen183
+\MPscratchDim=\dimen185
 \MPnumerator=\count299
 \makeMPintoPDFobject=\count300
 \everyMPtoPDFconversion=\toks31
-)
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -296,14 +314,14 @@ Package caption Info: End \AtBeginDocument code.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(85.35826pt, 469.47049pt, 42.67912pt)
+* h-part:(L,W,R)=(56.9055pt, 497.92325pt, 42.67912pt)
 * v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=469.47049pt
+* \textwidth=497.92325pt
 * \textheight=731.23584pt
-* \oddsidemargin=13.08827pt
-* \evensidemargin=13.08827pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
 * \topmargin=-52.36449pt
 * \headheight=12.0pt
 * \headsep=25.0pt
@@ -329,46 +347,115 @@ File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 ) (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 )
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
 
  []
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./main.toc)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./main.toc
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 4.
+<<ot1.cmap>><<oml.cmap>><<oms.cmap>><<omx.cmap>>)
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
- [2] [3]<<ot1.cmap>><<oml.cmap>><<oms.cmap>><<omx.cmap>> [4] [5] [6] [7] [8]
-Overfull \hbox (1.42056pt too wide) in paragraph at lines 464--465
- \T2A/cmr/m/n/12 Проделав все вычисления, можно сделать выводы, что более комплексные методы
+ [2] [3]
+Overfull \hbox (17.09065pt too wide) in paragraph at lines 129--132
+\T2A/cmr/m/n/12 прямой ход (определение прогоночных коэффициентов), обратный ход (вычисление неизвестных
  []
 
 
-Overfull \hbox (6.482pt too wide) in paragraph at lines 464--465
-\T2A/cmr/m/n/12 вычисления интеграла, как формула Гаусса и Симпсона, показыают наилучшие результа-
+Overfull \hbox (3.4492pt too wide) in paragraph at lines 133--134
+[]\T2A/cmr/m/n/12 Основным его преимуществом является простота в реализации и то что он максимально
  []
 
-[9]
-LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 467.
+
+Overfull \hbox (25.40967pt too wide) in paragraph at lines 163--164
+[]\T2A/cmr/m/n/12 Таким образом, прямой ход будет заключаться в нахождении прогоночных коэффициентов: 
+ []
+
+[4] [5]
+Overfull \hbox (72.29945pt too wide) in paragraph at lines 254--256
+[]  \T2A/cmr/m/n/12 Выберем некоторое начальное приближение $\OML/cmm/m/it/12 x[] \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 x[]; x[]; [] ; x[]\OT1/cmr/m/n/12 )[]$ \T2A/cmr/m/n/12 и построим последовательность
+ []
+
+
+Overfull \hbox (29.19774pt too wide) in paragraph at lines 254--256
+\T2A/cmr/m/n/12 векторов $\OML/cmm/m/it/12 x[]; x[]; [] $ \T2A/cmr/m/n/12 определяя вектор $\OML/cmm/m/it/12 x[]$ \T2A/cmr/m/n/12 по уже найденному вектору $\OML/cmm/m/it/12 x[]$ \T2A/cmr/m/n/12 при помощи соотношений: 
+ []
+
+[6] [7]
+Overfull \hbox (11.14897pt too wide) in paragraph at lines 333--335
+  \T2A/cmr/m/n/12 Во многих ситуациях существенного ускорения сходимости можно добиться за счет введения
+ []
+
+
+LaTeX Warning: Command \CYRA invalid in math mode on input line 349.
+
+Missing character: There is no А in font cmr12!
+
+Overfull \hbox (4.69223pt too wide) in paragraph at lines 340--352
+\T2A/cmr/m/n/12 уравнений. Значение $\OML/cmm/m/it/12 !$ \T2A/cmr/m/n/12 - называется релаксационным параметром. При $\OML/cmm/m/it/12 !$ \T2A/cmr/m/n/12 = 1 метод переходит
+ []
+
+
+Overfull \hbox (0.88391pt too wide) in paragraph at lines 340--352
+\T2A/cmr/m/n/12 матрицу с нулевой главной диагональю; элементы, стоящие под главной диагональю матрицы
+ []
+
+
+Overfull \hbox (0.26147pt too wide) in paragraph at lines 361--365
+[]  \T2A/cmr/m/n/12 Естественно параметр $\OML/cmm/m/it/12 !$ \T2A/cmr/m/n/12 следует выбирать так, чтобы метод релаксации сходился
+ []
+
+[8] [9] [10]
+Overfull \hbox (13.4556pt too wide) in paragraph at lines 447--451
+\T2A/cmr/m/n/12 Опишем метод минимизации функционала. Будем двигаться из точки начального приближения
+ []
+
+
+Overfull \hbox (2.84087pt too wide) in paragraph at lines 447--451
+\OML/cmm/m/it/12 x[]$ \T2A/cmr/m/n/12 в направлении наибыстрейшего убывания функционала $\OML/cmm/m/it/12 F$\T2A/cmr/m/n/12 , то есть следующее приближение
+ []
+
+
+Overfull \hbox (3.96521pt too wide) in paragraph at lines 458--461
+[]\T2A/cmr/m/n/12 Параметр $\OML/cmm/m/it/12 ^^\$ \T2A/cmr/m/n/12 выеберем так, чтобы значение $\OML/cmm/m/it/12 F\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 )$ \T2A/cmr/m/n/12 было минимальным. Получим $\OML/cmm/m/it/12 F\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 ) =
+ []
+
+
+Overfull \hbox (0.8847pt too wide) in paragraph at lines 467--470
+[]\T2A/cmr/m/n/12 Метод (11) называют методом наискорейшего спуска. По сравнению с методом простой
+ []
+
+
+Overfull \hbox (6.82979pt too wide) in paragraph at lines 467--470
+\T2A/cmr/m/n/12 по вычислению параметра $\OML/cmm/m/it/12 ^^\[]$\T2A/cmr/m/n/12 . Вследствие этого происходит адаптация к оптимальной скорости
+ []
+
+
+Overfull \hbox (24.58495pt too wide) in paragraph at lines 471--474
+\T2A/cmr/m/n/12 значения, полученные методом прогонки. Третий - значения, полученные методом наискорейшего
+ []
+
+[11] [12] [13] [14]
+LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 553.
  (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-) (../src/methods.hpp [10
-
-] [11] [12] [13] [14]) [15] (./main.aux) ) 
+) (../src/methods.hpp [15] [16] [17] [18] [19]) [20] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 9401 strings out of 479721
- 141516 string characters out of 5887698
- 1116954 words of memory out of 5000000
- 27236 multiletter control sequences out of 15000+600000
- 479462 words of font info for 49 fonts, out of 8000000 for 9000
+ 9785 strings out of 479721
+ 148171 string characters out of 5887698
+ 1119747 words of memory out of 5000000
+ 27585 multiletter control sequences out of 15000+600000
+ 481966 words of font info for 58 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 55i,11n,63p,744b,1093s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/latt1095.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm0600.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1095.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1200.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1728.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1440.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1440.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (15 pages, 169121 bytes).
+ 55i,11n,63p,509b,1097s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/latt1095.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm0600.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1095.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1200.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1200.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1728.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1440.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1440.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on main.pdf (20 pages, 249455 bytes).
 PDF statistics:
- 418 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
+ 511 PDF objects out of 1000 (max. 8388607)
+ 105 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
