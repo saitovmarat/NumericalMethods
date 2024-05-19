@@ -84,9 +84,6 @@
 \selectfont\onehalfspacing{
 \section{Постановка задачи}
 \hspace{1.25cm}Необходимо изучить и сравнить различные способы приближённого вычисления функции ошибок
-%  \begin{equation}
-%     \text{erf}(x) =\displaystyle\frac{2}{\sqrt{\pi}} \displaystyle\sum\limits_{n=1}^{\infty}(-1)^n\displaystyle\frac{x^{2n+1}}{n!(2n+1)}
-% \end{equation}
 \begin{equation}
     \text{erf}(x) =\displaystyle\frac{2}{\sqrt{\pi}} \displaystyle\int\limits_{0}^{x} e^{-t^2} dt
 \end{equation}
@@ -171,14 +168,12 @@
 \begin{equation}
 	a_{n}=a_{0}\prod_{n=0}^{n-1} q_{n}.
 \end{equation}
-Для каждой точки $x_i = a + i  h$ найдём значение $erf(x_i)$ и составим таблицу результатов (Таблица 1).
+Для каждой точки $x_i = a + i  h$ найдём значение $erf(x_i)$ и составим таблицу результатов.
 \begin{table}[h]
     \centering
     \begin{tabular}{|c|c|}
         \hline
         $x_i$ & $erf(x_i)$\\
-        \hline
-        0,0 & 0,0000000000\\
         \hline
         0,2 & 0,2227025926\\
         \hline
@@ -424,6 +419,18 @@
 \section{Выводы}
 \hspace{1.25cm}Проделав все вычисления, можно сделать выводы, что более комплексные методы вычисления интеграла, как формула Гаусса и Симпсона, показыают наилучшие результа\-ты за меньшее количество разбиений. В это же время худшие результаты вычисления показыают методы правых прямоугольников и метод трапеций, приводя к довольно большому значению ошибки.}
 \newpage
+
+\begin{center}
+\section{Cписок литературы}
+\end{center}
+\begin{enumerate}
+    \item Глазырина Л.Л., Карчевский М.М. Численные методы: учебное пособие. — Казань: Казан.
+    ун-т, 2012. — 122 
+    \item Глазырина Л.Л.. Практикум по курсу «Численные методы». Решение
+    систем линейных уравнений: учеб. пособие. — Казань: Изд-во Казан. ун-та, 2017. — 52 с.
+\end{enumerate}
+\newpage
+
 \section{Листинг программы}
 \lstinputlisting[language=C++]{../src/Function.h}
 \lstinputlisting[language=C++]{../src/Function.cpp}
