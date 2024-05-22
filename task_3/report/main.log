@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.8)  20 MAY 2024 02:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.20)  21 MAY 2024 00:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -360,35 +360,16 @@ LaTeX Font Info:    Calculating math sizes for size <14> on input line 4.
 \openout3 = `main.toc'.
 
  [2] [3]
-Overfull \hbox (17.09065pt too wide) in paragraph at lines 129--132
-\T2A/cmr/m/n/12 прямой ход (определение прогоночных коэффициентов), обратный ход (вычисление неизвестных
+Overfull \hbox (23.61508pt too wide) in paragraph at lines 132--133
+[]\T2A/cmr/m/n/12 Основными его преимуществами являются простота в реализации и то, что он максимально
  []
 
 
-Overfull \hbox (3.4492pt too wide) in paragraph at lines 133--134
-[]\T2A/cmr/m/n/12 Основным его преимуществом является простота в реализации и то что он максимально
- []
-
-
-Overfull \hbox (25.40967pt too wide) in paragraph at lines 163--164
+Overfull \hbox (25.40967pt too wide) in paragraph at lines 162--163
 []\T2A/cmr/m/n/12 Таким образом, прямой ход будет заключаться в нахождении прогоночных коэффициентов: 
  []
 
-[4] [5]
-Overfull \hbox (72.29945pt too wide) in paragraph at lines 254--256
-[]  \T2A/cmr/m/n/12 Выберем некоторое начальное приближение $\OML/cmm/m/it/12 x[] \OT1/cmr/m/n/12 = (\OML/cmm/m/it/12 x[]; x[]; [] ; x[]\OT1/cmr/m/n/12 )[]$ \T2A/cmr/m/n/12 и построим последовательность
- []
-
-
-Overfull \hbox (29.19774pt too wide) in paragraph at lines 254--256
-\T2A/cmr/m/n/12 векторов $\OML/cmm/m/it/12 x[]; x[]; [] $ \T2A/cmr/m/n/12 определяя вектор $\OML/cmm/m/it/12 x[]$ \T2A/cmr/m/n/12 по уже найденному вектору $\OML/cmm/m/it/12 x[]$ \T2A/cmr/m/n/12 при помощи соотношений: 
- []
-
-[6] [7]
-Overfull \hbox (11.14897pt too wide) in paragraph at lines 333--335
-  \T2A/cmr/m/n/12 Во многих ситуациях существенного ускорения сходимости можно добиться за счет введения
- []
-
+[4] [5] [6] [7]
 
 LaTeX Warning: Command \CYRA invalid in math mode on input line 349.
 
@@ -398,24 +379,9 @@ Overfull \hbox (4.69223pt too wide) in paragraph at lines 340--352
 \T2A/cmr/m/n/12 уравнений. Значение $\OML/cmm/m/it/12 !$ \T2A/cmr/m/n/12 - называется релаксационным параметром. При $\OML/cmm/m/it/12 !$ \T2A/cmr/m/n/12 = 1 метод переходит
  []
 
-
-Overfull \hbox (0.88391pt too wide) in paragraph at lines 340--352
-\T2A/cmr/m/n/12 матрицу с нулевой главной диагональю; элементы, стоящие под главной диагональю матрицы
- []
-
-
-Overfull \hbox (0.26147pt too wide) in paragraph at lines 361--365
-[]  \T2A/cmr/m/n/12 Естественно параметр $\OML/cmm/m/it/12 !$ \T2A/cmr/m/n/12 следует выбирать так, чтобы метод релаксации сходился
- []
-
 [8] [9] [10]
-Overfull \hbox (13.4556pt too wide) in paragraph at lines 447--451
-\T2A/cmr/m/n/12 Опишем метод минимизации функционала. Будем двигаться из точки начального приближения
- []
-
-
-Overfull \hbox (2.84087pt too wide) in paragraph at lines 447--451
-\OML/cmm/m/it/12 x[]$ \T2A/cmr/m/n/12 в направлении наибыстрейшего убывания функционала $\OML/cmm/m/it/12 F$\T2A/cmr/m/n/12 , то есть следующее приближение
+Overfull \hbox (3.98294pt too wide) in paragraph at lines 447--451
+\T2A/cmr/m/n/12 приближения $\OML/cmm/m/it/12 x[]$ \T2A/cmr/m/n/12 в направлении наибыстрейшего убывания функционала $\OML/cmm/m/it/12 F$\T2A/cmr/m/n/12 , то есть следующее
  []
 
 
@@ -425,7 +391,7 @@ Overfull \hbox (3.96521pt too wide) in paragraph at lines 458--461
 
 
 Overfull \hbox (0.8847pt too wide) in paragraph at lines 467--470
-[]\T2A/cmr/m/n/12 Метод (11) называют методом наискорейшего спуска. По сравнению с методом простой
+[]\T2A/cmr/m/n/12 Метод (12) называют методом наискорейшего спуска. По сравнению с методом простой
  []
 
 
@@ -434,28 +400,38 @@ Overfull \hbox (6.82979pt too wide) in paragraph at lines 467--470
  []
 
 
-Overfull \hbox (24.58495pt too wide) in paragraph at lines 471--474
-\T2A/cmr/m/n/12 значения, полученные методом прогонки. Третий - значения, полученные методом наискорейшего
+Overfull \hbox (10.45235pt too wide) in paragraph at lines 471--475
+\T2A/cmr/m/n/12 Третий - значения, полученные методом наискорейшего спуска. В четвертом столбце находится
  []
 
-[11] [12] [13] [14]
-LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 553.
+[11] [12]
+Overfull \hbox (9.80891pt too wide) in paragraph at lines 533--538
+[]\T2A/cmr/m/n/12 В процессе выполнения данной работы были получены знания решения систем линейных
+ []
+
+
+Overfull \hbox (34.12407pt too wide) in paragraph at lines 533--538
+\T2A/cmr/m/n/12 линейных алгебраических уравнений методом верхней релаксации является наиболее эффективным
+ []
+
+[13] [14]
+LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 554.
  (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-) (../src/methods.hpp [15] [16] [17] [18] [19]) [20] (./main.aux) ) 
+) (../src/methods.hpp [15] [16] [17] [18]) [19] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 9785 strings out of 479721
- 148171 string characters out of 5887698
- 1119747 words of memory out of 5000000
- 27585 multiletter control sequences out of 15000+600000
- 481966 words of font info for 58 fonts, out of 8000000 for 9000
+ 9781 strings out of 479721
+ 148106 string characters out of 5887697
+ 1151747 words of memory out of 5000000
+ 27579 multiletter control sequences out of 15000+600000
+ 482768 words of font info for 59 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  55i,11n,63p,509b,1097s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/latt1095.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm0600.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1095.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1200.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1200.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1728.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/larm1440.600pk> </home/ubuntu/.texlive2021/texmf-var/fonts/pk/ljfour/lh/lh-t2a/labx1440.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (20 pages, 249455 bytes).
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t2a.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on main.pdf (19 pages, 306080 bytes).
 PDF statistics:
- 511 PDF objects out of 1000 (max. 8388607)
- 105 compressed objects within 2 object streams
+ 142 PDF objects out of 1000 (max. 8388607)
+ 96 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -15,21 +15,6 @@ double g(double i, double h){
 double f(double i, double h){
     return -pow(i*h, 6) + 26*pow(i*h, 4) + 4*pow(i*h, 3) - 12*pow(i*h, 2);
 }
-double denominator(int i, double h){
-    return (a(i, h) + a(i+1, h) + pow(h, 2)*g(i, h));
-}
-void printTable(int n, const std::vector<double> y, const std::vector<double> u){
-    double h = 1.0 / n;
-    std::cout << std::setw(12) << "i*h" << " | " << std::setw(12) << "yi" << " | " << std::setw(12) << " u(ih)"  << " | " << std::setw(12) << "|yi - u(ih)|" << std::endl;
-    for(int i = 1; i < n; i++){
-        double ui = u[i];
-        double yi = y[i];
-        std::cout  << i*h << " & " << std::setw(12) << yi << " & " 
-            << std::setw(12) << ui << " & " << std::setw(12) << abs(yi - ui) << "\\\\" << std::endl;
-        std::cout << "\\hline\n";
-    }
-
-}
 std::vector<double> SweepMethod_result(int n){
     double h = 1.0 / n;
     std::vector<double> alpha(n+1);
@@ -115,9 +100,9 @@ void upperRelaxationMethod_tableOutput(int n){
         while(fabs(r) > eps) {
             y_k = y_k_1;
             for(int i = 1; i < n-1; i++) {
-                double current_el = (a(i, h)*y_k_1[i-1] + a(i+1, h)*y_k[i+1] + f(i, h)*pow(h, 2))
+                double I = (a(i, h)*y_k_1[i-1] + a(i+1, h)*y_k[i+1] + f(i, h)*pow(h, 2))
                      /(a(i, h) + a(i+1, h) + pow(h, 2)*g(i, h));
-                y_k_1[i] = w * current_el + (1-w) * y_k[i];
+                y_k_1[i] = (1-w) * y_k[i] + w*I ;
                 if(i == 1) r = fabs((y_k_1[i] - y_k[i])/y_k_1[i]);
                 else r = std::max(fabs((y_k_1[i] - y_k[i])/y_k_1[i]), r);
             }
@@ -128,15 +113,15 @@ void upperRelaxationMethod_tableOutput(int n){
             min_k = k;
             w_min_k = w;  
         }
-        std::cout << std::setw(4) << w << " & " << k << " \\hline" << std::endl;
+        std::cout << std::setw(4) << w << " | " << k << std::endl;
     }
     std::vector<double> yi = SweepMethod_result(n);
     std::cout << "w with minimal k = " << w_min_k << "\n";
     std::cout << std::setw(4) << "i*h" << " | " << std::setw(12) << "yi" << " | " << std::setw(12) << " yi_k"  << " | " << std::setw(12) << "|yi - yi_k|" << " | " << "k" << std::endl;
     // Table output
     for(int i = 1; i < n; i++){
-        std::cout  << std::setw(4) << i*h << " & " << std::setw(12) << yi[i] << " & " 
-            << std::setw(12) << y_k_lowest[i] << " & " << std::setw(12) << fabs(yi[i] - y_k_lowest[i]) << " & " << min_k << " \\hline" <<  std::endl;
+        std::cout  << std::setw(4) << i*h << " | " << std::setw(12) << yi[i] << " | " 
+            << std::setw(12) << y_k_lowest[i] << " | " << std::setw(12) << fabs(yi[i] - y_k_lowest[i]) << " | " << min_k <<  std::endl;
     }
     std::cout << "---\n";
 }
@@ -164,17 +149,14 @@ void descentMethod_tableOutput(int n){
         for(int i = 1; i < n-1; i++){
             Ar[i] = -a(i, h)*r_k[i-1] + (a(i, h) + a(i+1, h) + pow(h, 2))*r_k[i] - a(i+1, h)*r_k[i+1];
         }
-        double tau = 0;
-        for(int i = 1; i < n; i++){
-            double tauNumerator = 0;
-            double tauDenominator = 0;
-            for(int i = 0; i < n; i++){ 
-                tauNumerator += pow(r_k[i], 2);
-                tauDenominator += Ar[i]*r_k[i];
-            }
-            tau = tauNumerator/tauDenominator;
+        double tauNumerator = 0;
+        double tauDenominator = 0;
+        for(int i = 0; i < n; i++){ 
+            tauNumerator += pow(r_k[i], 2);
+            tauDenominator += Ar[i]*r_k[i];
         }
-        for(int i = 1; i < n; i++){
+        double tau = tauNumerator/tauDenominator;
+        for(int i = 0; i < n; i++){
             y_k[i] = y_k[i] - tau*r_k[i];
         }
         k_count++;
@@ -182,8 +164,8 @@ void descentMethod_tableOutput(int n){
     std::vector<double> yi = SweepMethod_result(n);
     // Table output
     for(int i = 1; i < n; i++){
-        std::cout  << std::setw(4) << i*h << " & " << std::setw(12) << yi[i] << " & " 
-            << std::setw(12) << y_k[i] << " & " << std::setw(12) << abs(yi[i] - y_k[i]) << " & " << k_count << "\\\\ \\hline"<< std::endl;
+        std::cout  << std::setw(4) << i*h << " | " << std::setw(12) << yi[i] << " | " 
+            << std::setw(12) << y_k[i] << " | " << std::setw(12) << abs(yi[i] - y_k[i]) << " | " << k_count << std::endl;
     }
     std::cout << "---\n";
 }
