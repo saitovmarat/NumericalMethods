@@ -87,7 +87,6 @@
 \hspace{0.5cm} Целью работы является исследование модели взаимодейстия "Хищник - жертва",
 выявление зависимостей поведения модели в зависимости от значения параметров,
 описывающих систему, а так же применение метода
-\newpage
 
 \section{Теоретические основы выполнения работы}
 \hspace{0.5cm} Модель Вольтерра используется для представления взаимодейстия двух типов. 
@@ -170,23 +169,34 @@ $a$ - описывает рождаемость жертв, $c$ - ествест
 Перед вычислением коэффициентов стоит заметить, что $y'_1 = y'_1(y_1, y_2, t)$ и $y'_2 = y'_2(y_1, y_2, t)$,
 тогда:
 \begin{align}
-    k_{11} &= y'_1(y_1(i), y_2(i), t(i)) \nonumber \\
-    k_{12} &= y'_2(y_1(i), y_2(i), t(i)) \nonumber \\
-    k_{21} &= y'_1(y_1(i) + \frac{h}{2}k_{11}, y_2(i) + \frac{h}{2}k_{12}, t(i) + \frac{h}{2}) \nonumber \\
-    k_{22} &= y'_2(y_1(i) + \frac{h}{2}k_{11}, y_2(i) + \frac{h}{2}k_{12}, t(i) + \frac{h}{2}) \nonumber \\
-    k_{31} &= y'_1(y_1(i) + \frac{h}{2}k_{21}, y_2(i) + \frac{h}{2}k_{22}, t(i) + \frac{h}{2}) \\
-    k_{32} &= y'_2(y_1(i) + \frac{h}{2}k_{21}, y_2(i) + \frac{h}{2}k_{22}, t(i) + \frac{h}{2}) \nonumber \\
-    k_{41} &= y'_1(y_1(i) + hk_{31}, y_2(i) + hk_{32}, t(i) + h) \nonumber \\
-    k_{42} &= y'_1(y_1(i) + hk_{31}, y_2(i) + hk_{32}, t(i) + h) \nonumber
+    k_{11} &= y'_1(t(i), y_1(i), y_2(i)) \nonumber \\
+    k_{12} &= y'_2(t(i), y_1(i), y_2(i)) \nonumber \\
+    k_{21} &= y'_1(t(i) + \frac{h}{3}, y_1(i) + \frac{h}{3}k_{11}, y_2(i) + \frac{h}{3} k_{12}) \nonumber \\
+    k_{22} &= y'_2(t(i) + \frac{h}{3}, y_1(i) + \frac{h}{3}k_{11}, y_2(i) + \frac{h}{3} k_{12}) \nonumber \\
+    k_{31} &= y'_1(t(i) + \frac{2h}{3}, y_1(i) - \frac{h}{3}k_{11} + hk_{21}, y_2(i) - \frac{h}{3}k_{12} + hk_{22}) \\
+    k_{32} &= y'_2(t(i) + \frac{2h}{3}, y_1(i) - \frac{h}{3}k_{11} + hk_{21}, y_2(i) - \frac{h}{3}k_{12} + hk_{22}) \nonumber \\
+    k_{41} &= y'_1(t[i] + h, y_1(i) + h (k_{11} - k_{21} + k_{31}), y_2(i) + h(k_{12} - k_{22} + k_{32})) \nonumber \\
+    k_{42} &= y'_2(t[i] + h, y_1(i) + h (k_{11} - k_{21} + k_{31}), y_2(i) + h(k_{12} - k_{22} + k_{32})) \nonumber \\
+    y_1(i + 1) &= y_1(i) + \frac{h}{8} (k_{11} + 3k_{21} + 3k_{31} + k_{41}) \nonumber \\
+    y_2(i + 1) &= y_2(i) + \frac{h}{8} (k_{11} + 3k_{21} + 3k_{31} + k_{41}) \nonumber \\
 \end{align}
 где i = 1, \dots, $\frac{b-a}{h} - 1$
 
-Решив таким образом систему, составим графики зависимости максимальной ошибки решения от шага $h$ и $h^4$:
+Получим график данных функций:
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\linewidth]{pictures/testTask.png}
+    \includegraphics[width=0.5\linewidth]{pictures/testTaskResult.png}
     \captionsetup{labelformat=empty}
-    \caption{Рис.1 --- Зависимость точности решения от изменения шага h.}
+    \caption{Рис.1 --- График двух функций, полученных через метод Рунге - Кутты.}
+\end{figure}
+\newpage
+
+Решив таким образом систему, составим графики зависимости максимальной ошибки решения от шага $h^4$:
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{pictures/testTask.png}
+    \captionsetup{labelformat=empty}
+    \caption{Рис.2 --- Зависимость точности решения от шага $h^4$.}
 \end{figure}
 
 Исходя из вида графиков, описывающих зависимость точности решения, можно сделать вывод

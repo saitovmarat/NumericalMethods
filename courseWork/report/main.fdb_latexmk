@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1716635468 "/home/ubuntu/Projects/University/NumericalMethods/courseWork/report/main.tex" "main.pdf" "main" 1716635469
-  "../src/main.cpp" 1715016504 4002 c5e0bf243872c7a1b6e83914436f045c ""
+["pdflatex"] 1716733812 "/home/ubuntu/Projects/University/NumericalMethods/courseWork/report/main.tex" "main.pdf" "main" 1716733813
+  "../src/main.cpp" 1716733052 2699 d0d32234a40fc21b78526f3ece3678fb ""
   "/etc/texmf/web2c/texmf.cnf" 1710749674 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/ubuntu/.texlive2021/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm" 1714739031 3304 6a543c07045572737981351171e0505e ""
   "/home/ubuntu/.texlive2021/texmf-var/fonts/tfm/lh/lh-t2a/labx1728.tfm" 1714739036 3312 d199be9bd555944e2403193d58a0256a ""
@@ -10,7 +10,7 @@
   "/home/ubuntu/.texlive2021/texmf-var/fonts/tfm/lh/lh-t2a/larm1440.tfm" 1714739033 3256 3daaa33cf35cf3f354983aa3214ecd7f ""
   "/home/ubuntu/.texlive2021/texmf-var/fonts/tfm/lh/lh-t2a/larm1728.tfm" 1714739034 3252 92d08740ce00199d6cf9ff4aaada81d1 ""
   "/home/ubuntu/.texlive2021/texmf-var/fonts/tfm/lh/lh-t2a/latt1095.tfm" 1714746941 1276 e8f51803ab84b07f08acd5c6da2228c8 ""
-  "/home/ubuntu/Projects/University/NumericalMethods/courseWork/report/main.tex" 1716635467 16328 6453a22edd724dc8367146b3dc7c5117 ""
+  "/home/ubuntu/Projects/University/NumericalMethods/courseWork/report/main.tex" 1716733811 16962 295d1923ede8be525d178c4b45d3b7e1 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -95,14 +95,15 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1716220227 4236752 932f844573acf747b158737a9c9707f4 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1716220239 1481417 b4849355b418504368a0a4081d829006 ""
-  "main.aux" 1716635469 6977 936657b4dcc6a1bf6ecdbd569f443757 "pdflatex"
-  "main.tex" 1716635467 16328 6453a22edd724dc8367146b3dc7c5117 ""
-  "main.toc" 1716635469 2376 df690c83de0e653ab7316935a78f0b29 "pdflatex"
+  "main.aux" 1716733813 7650 e1168c94f36f1704a454e8f5d5705f64 "pdflatex"
+  "main.tex" 1716733811 16962 295d1923ede8be525d178c4b45d3b7e1 ""
+  "main.toc" 1716733813 2376 011c84603d8c09495db70a322df422c8 "pdflatex"
   "pictures/task1.png" 1716633053 54142 5b4d276a7356239510e82ce8193f395a ""
   "pictures/task2.png" 1716633053 54930 2c690db1e77ccfe76c7fa81f7bfffc01 ""
   "pictures/task3.png" 1716633053 93540 a883bd0dac17ce441288569931878bda ""
   "pictures/task4.png" 1716633053 170164 a7dd4bde68eb700f67e0aa0cbfa03f14 ""
-  "pictures/testTask.png" 1716630722 136930 493ac41dafdd1f479404df6ae17ef453 ""
+  "pictures/testTask.png" 1716733745 56309 bf525b49a8488e78e7abca6c6b04f81a ""
+  "pictures/testTaskResult.png" 1716733163 65175 d3e28c86086f04c875d76a39ee328fb1 ""
   (generated)
   "main.aux"
   "main.log"

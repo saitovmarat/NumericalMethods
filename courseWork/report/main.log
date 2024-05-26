@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.20)  25 MAY 2024 14:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.5.20)  26 MAY 2024 17:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -350,110 +350,116 @@ File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
- [2] [3] [4] [5] [6]
-<pictures/testTask.png, id=37, 1593.955pt x 628.3475pt>
+ [2] [3] [4] [5]
+<pictures/testTaskResult.png, id=34, 642.4pt x 642.4pt>
+File: pictures/testTaskResult.png Graphic file (type png)
+<use pictures/testTaskResult.png>
+Package pdftex.def Info: pictures/testTaskResult.png  used on input line 188.
+(pdftex.def)             Requested size: 234.73524pt x 234.73381pt.
+ [6 <./pictures/testTaskResult.png>]
+<pictures/testTask.png, id=40, 787.94376pt x 547.04375pt>
 File: pictures/testTask.png Graphic file (type png)
 <use pictures/testTask.png>
-Package pdftex.def Info: pictures/testTask.png  used on input line 187.
-(pdftex.def)             Requested size: 469.47049pt x 185.06367pt.
+Package pdftex.def Info: pictures/testTask.png  used on input line 197.
+(pdftex.def)             Requested size: 234.73524pt x 162.96246pt.
  [7 <./pictures/testTask.png>]
-<pictures/task1.png, id=44, 698.61pt x 625.33624pt>
+<pictures/task1.png, id=46, 698.61pt x 625.33624pt>
 File: pictures/task1.png Graphic file (type png)
 <use pictures/task1.png>
-Package pdftex.def Info: pictures/task1.png  used on input line 212.
+Package pdftex.def Info: pictures/task1.png  used on input line 222.
 (pdftex.def)             Requested size: 234.73524pt x 210.11154pt.
 
-Overfull \hbox (10.53044pt too wide) in paragraph at lines 199--216
+Overfull \hbox (10.53044pt too wide) in paragraph at lines 209--226
 \T2A/cmr/m/n/12 равное отношение прироста жертв к смертности хищников получим график описывающий
  []
 
 
-Overfull \hbox (11.28099pt too wide) in paragraph at lines 199--216
+Overfull \hbox (11.28099pt too wide) in paragraph at lines 209--226
 \T2A/cmr/m/n/12 жертв в начальный момент превышает размер популяции хищников, из-за чего веротность
  []
 
 
-Overfull \hbox (1.87106pt too wide) in paragraph at lines 199--216
+Overfull \hbox (1.87106pt too wide) in paragraph at lines 209--226
 \T2A/cmr/m/n/12 встречи представителей двух видов возрастает, хищник убивает жертву. С уменьшением
  []
 
 
-Overfull \hbox (4.4786pt too wide) in paragraph at lines 199--216
+Overfull \hbox (4.4786pt too wide) in paragraph at lines 209--226
 \T2A/cmr/m/n/12 количества жертв, количество встреч с хищниками убывает. Когда хищники не охотятся,
  []
 
 [8 <./pictures/task1.png>]
-<pictures/task2.png, id=49, 703.62875pt x 641.39626pt>
+<pictures/task2.png, id=51, 703.62875pt x 641.39626pt>
 File: pictures/task2.png Graphic file (type png)
 <use pictures/task2.png>
-Package pdftex.def Info: pictures/task2.png  used on input line 223.
+Package pdftex.def Info: pictures/task2.png  used on input line 233.
 (pdftex.def)             Requested size: 234.73524pt x 213.97112pt.
 
-Overfull \hbox (7.90482pt too wide) in paragraph at lines 218--227
+Overfull \hbox (7.90482pt too wide) in paragraph at lines 228--237
 \T2A/cmr/m/n/12 росту популяций жертв. Поведение популяций видов изменилось, численность популяций
  []
 
-<pictures/task3.png, id=50, 1282.7925pt x 505.89pt>
+<pictures/task3.png, id=52, 1282.7925pt x 505.89pt>
 File: pictures/task3.png Graphic file (type png)
 <use pictures/task3.png>
-Package pdftex.def Info: pictures/task3.png  used on input line 234.
+Package pdftex.def Info: pictures/task3.png  used on input line 244.
 (pdftex.def)             Requested size: 469.47049pt x 185.13847pt.
 
-Overfull \hbox (17.31769pt too wide) in paragraph at lines 228--238
+Overfull \hbox (17.31769pt too wide) in paragraph at lines 238--248
 \T2A/cmr/m/n/12 что соответствует ситуации, когда в начальный момент число хищников в 4 раза превышает
  []
 
 
-Overfull \hbox (4.73088pt too wide) in paragraph at lines 228--238
+Overfull \hbox (4.73088pt too wide) in paragraph at lines 238--248
 \T2A/cmr/m/n/12 значении $\OML/cmm/m/it/12 ^^[ \OT1/cmr/m/n/12 = 3$ \T2A/cmr/m/n/12 популяция хищников убывает сильнее из-за малого количества доступной
  []
 
 [9 <./pictures/task2.png> <./pictures/task3.png>]
-<pictures/task4.png, id=56, 1285.80376pt x 510.90875pt>
+<pictures/task4.png, id=58, 1285.80376pt x 510.90875pt>
 File: pictures/task4.png Graphic file (type png)
 <use pictures/task4.png>
-Package pdftex.def Info: pictures/task4.png  used on input line 243.
+Package pdftex.def Info: pictures/task4.png  used on input line 253.
 (pdftex.def)             Requested size: 469.47049pt x 186.5386pt.
  [10 <./pictures/task4.png>]
-Overfull \hbox (13.02878pt too wide) in paragraph at lines 251--257
+Overfull \hbox (13.02878pt too wide) in paragraph at lines 261--267
 \T2A/cmr/m/n/12 поведения популяций. В ходе работы были рассмотрены модели с различными значениями
  []
 
 
-Overfull \hbox (3.28633pt too wide) in paragraph at lines 251--257
+Overfull \hbox (3.28633pt too wide) in paragraph at lines 261--267
 \T2A/cmr/m/n/12 начального размера популяций, коэффициентов определяющих отношение убыли одного
  []
 
 
-Overfull \hbox (5.2442pt too wide) in paragraph at lines 251--257
+Overfull \hbox (5.2442pt too wide) in paragraph at lines 261--267
 \T2A/cmr/m/n/12 с достаточной степенью точности, достаточной для корректного моделирования системы. 
  []
 
 [11] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 )
-Overfull \hbox (4.94775pt too wide) in paragraph at lines 263--265
+Overfull \hbox (4.94775pt too wide) in paragraph at lines 273--275
 []\T2A/cmr/m/n/12 Глазырина Л.Л., Карчевский М.М. Численные методы: учебное пособие. ^^V Казань:
  []
 
 [12]
-LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 273.
+LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 283.
  (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-) (../src/main.cpp [13] [14]) [15] (./main.aux) ) 
+) (../src/main.cpp [13]) [14] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 9797 strings out of 479721
- 148277 string characters out of 5887697
- 1159748 words of memory out of 5000000
- 27610 multiletter control sequences out of 15000+600000
+ 9757 strings out of 479721
+ 147943 string characters out of 5887697
+ 1194748 words of memory out of 5000000
+ 27569 multiletter control sequences out of 15000+600000
  478643 words of font info for 48 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  55i,8n,63p,1291b,1098s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t2a.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on main.pdf (15 pages, 655783 bytes).
+Output written on main.pdf (14 pages, 624579 bytes).
 PDF statistics:
- 124 PDF objects out of 1000 (max. 8388607)
- 76 compressed objects within 1 object stream
+ 123 PDF objects out of 1000 (max. 8388607)
+ 74 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

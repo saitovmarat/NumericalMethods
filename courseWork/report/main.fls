@@ -433,6 +433,11 @@ INPUT main.toc
 INPUT main.toc
 INPUT /home/ubuntu/.texlive2021/texmf-var/fonts/tfm/lh/lh-t2a/labx1440.tfm
 OUTPUT main.toc
+INPUT ./pictures/testTaskResult.png
+INPUT ./pictures/testTaskResult.png
+INPUT pictures/testTaskResult.png
+INPUT ./pictures/testTaskResult.png
+INPUT ./pictures/testTaskResult.png
 INPUT ./pictures/testTask.png
 INPUT ./pictures/testTask.png
 INPUT pictures/testTask.png
