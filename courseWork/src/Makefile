@@ -4,8 +4,6 @@ endif
 
 all: build compile
 
-recompile: clean build compile
-
 compile: build
 	@clear && ../build/main 
 
