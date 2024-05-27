@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
 \usepackage[russian,english]{babel}
+\linespread{1.5}
 \usepackage{amsmath}
 \usepackage{cmap}
 \usepackage{booktabs}
@@ -11,7 +12,7 @@
 \usepackage{xcolor}
 \usepackage{setspace}
 \usepackage{graphicx}
-\usepackage[left=3cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[left=3cm, right=1cm, top=2cm, bottom=2cm]{geometry}
 \renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}
 \lstset{
     language=C++,
@@ -57,9 +58,10 @@
     по дисциплине: «Численные методы»
     \vspace{0.2cm}
  
-    Система типа хищник-жертва. Модель Вольтера.
+    Система типа хищник-жертва. Модель Вольтерра.
 \end{center}
 
+\vfill
 \vspace{3cm}
 \noindent Студент 2 курса\\
 группы 09-221\\
@@ -67,8 +69,9 @@
 Научный руководитель\\
 ассистент б.с.\\
 «\underline{\qquad}» \underline{\qquad\qquad} 2024 г. \qquad\qquad\quad \underline{\qquad\qquad\qquad\quad} \qquad О.В. Глазырина
-
-\vfill
+\\
+\\
+\\
 \begin{center} \large{Казань, 2024 год} \end{center}
 \thispagestyle{empty}
  
@@ -84,13 +87,13 @@
 \newpage
 
 \section{Цель работы}
-\hspace{0.5cm} Целью работы является исследование модели взаимодейстия "Хищник - жертва",
+\hspace{0.5cm} Целью работы является исследование модели взаимодейстия <<Хищник --- Жертва>>,
 выявление зависимостей поведения модели в зависимости от значения параметров,
 описывающих систему, а так же применение метода Рунге-Кутты при решении сопутсвующих систем дифференциальных 
 уравнений.
 \section{Теоретические основы выполнения работы}
 \hspace{0.5cm} Модель Вольтерра используется для представления взаимодейстия двух типов. 
-При моделировании системы "Хищник --- Жертва" будем учиывать следующие ограничения:
+При моделировании системы <<Хищник --- Жертва>> будем учиывать следующие ограничения:
 \begin{enumerate}
     \item Жертва может найти достаточно пищи для пропитания
     \item При каждой встрече с хищником последний убивает жертву
@@ -108,12 +111,13 @@
     \frac{dy}{dt} = -cy + dxy
 \end{equation}
 где коэффициенты $b, d$ - коэффициенты убийства жертв и воспроизводства хищников,
-$a$ - описывает рождаемость жертв, $c$ - ествестенную смерть жертв. $$ $$
+$a$ - описывает рождаемость жертв, $c$ - ествестенную смерть жертв. \\
 Произведя в системе (1) замены:
 \begin{equation*}
-    X = \frac{d}{a}x, \hspace{0.2cm} Y = \frac{b}{a}y, \hspace{0.2cm} \tau = at, \hspace{0.2cm} \sigma = \frac{c}{a}
+    X = \left(\frac{d}{a}\right)x, \hspace{0.2cm} Y = \left(\frac{b}{a}\right)y, \hspace{0.2cm} \tau = at, \hspace{0.2cm} \sigma = \frac{c}{a}
 \end{equation*}
 уравнение (1) преобразуется к виду:
+\newpage
 \begin{equation}
     \frac{dX}{d\tau} = X - XY $$ $$
     \frac{dY}{d\tau} = -\sigma Y + XY
@@ -124,7 +128,6 @@ $a$ - описывает рождаемость жертв, $c$ - ествест
 \end{equation}
 описывающими количество особей каждого из вида.
 \newpage
-
 
 \section{Метод Рунге-Кутты}
 \hspace{0.5cm} Для решения систем дифференциалных уравнений будем использовать
@@ -144,8 +147,8 @@ $a$ - описывает рождаемость жертв, $c$ - ествест
     y'_1 = \frac{y_1}{2 + 2t} - 2ty_2, \hspace{0.5cm} y'_2 = \frac{y_2}{2 + 2t} + 2ty_1,
 \end{equation}
 на отрезке [0, 2].
-\newpage
 
+\newpage
 \section{Задание}
 \hspace{0.5cm} В ходе выполнения работы необходимо:
 \begin{enumerate}
@@ -175,13 +178,13 @@ $a$ - описывает рождаемость жертв, $c$ - ествест
 \hspace{0.5cm} Пойдем методом от обратного и выведем уравнения системы (1) через уравнения системы (2):
 \begin{enumerate}
     \item Подставим в левую часть первого уравнения (2) наши замены получим:
-    $$ \frac{dX}{d\tau} = \frac{d\left(\frac{d}{a}\right)x}{d(at)} = \frac{d}{a^2} \frac{dx}{dt} $$
+    \[ \frac{dX}{d\tau} = \frac{d\left(\frac{d}{a}\right)x}{d(at)} = \frac{d}{a^2} \frac{dx}{dt} \]
     \item Подставим в правую часть наши замены получим: 
-    $$ X - XY = \left(\frac{d}{a}\right)x - \left(1 - \left(\frac{b}{a}\right)y\right) $$
+    \[ X - XY = \left(\frac{d}{a}\right)x - \left(1 - \left(\frac{b}{a}\right)y\right) \]
     \item Соединив два уравения получим:
-    $$ \frac{d}{a^2} \frac{dx}{dt} = \left(\frac{d}{a}\right)x - \left(1 - \left(\frac{b}{a}\right)y\right) $$
+    \[ \frac{d}{a^2} \frac{dx}{dt} = \left(\frac{d}{a}\right)x - \left(1 - \left(\frac{b}{a}\right)y\right) \]
     \item Разделив обе части уравнения на $\frac{d}{a^2}$ получим:
-    $$ \frac{dx}{dt} = ax - bxy $$ 
+    \[ \frac{dx}{dt} = ax - bxy \]
 \end{enumerate}
 
 Проделав те же самые шаги ко второму уравнению системы (2), мы придем ко второму уравнению системы (1).
@@ -214,11 +217,10 @@ $a$ - описывает рождаемость жертв, $c$ - ествест
 Получим график данных функций:
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\linewidth]{pictures/testTaskResult.png}
+    \includegraphics[width=0.31\linewidth]{pictures/testTaskResult.png}
     \captionsetup{labelformat=empty}
     \caption{Рис.1 --- График двух функций, полученных через метод Рунге - Кутты.}
 \end{figure}
-\newpage
 
 Решив таким образом систему, составим графики зависимости максимальной ошибки решения от шага $h^4$:
 \begin{figure}[h]
@@ -271,7 +273,7 @@ $X_0 = 3, Y_0 = 0.5$, начальное число жертв и хищнико
 хищников убывает сильнее из-за малого количества доступной изначально пищи и значения коэффициента.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\linewidth]{pictures/task3.png}
+    \includegraphics[width=0.8\linewidth]{pictures/task3.png}
     \captionsetup{labelformat=empty}
     \caption{Рис.5 --- Вид популяции при других начальных условиях.}
 \end{figure}
@@ -294,20 +296,22 @@ $X_0 = 3, Y_0 = 0.5$, начальное число жертв и хищнико
 дифференциалных уравнений. Метод позволяет решать уравнения с достаточной степенью точности, достаточной для 
 корректного моделирования системы.
 \newpage
-
-\begin{center}
 \section{Cписок литературы}
-\end{center}
 \begin{enumerate}
     \item Глазырина Л.Л., Карчевский М.М. Численные методы: учебное пособие. — Казань: Казан.
     ун-т, 2012. — 122 
     \item Глазырина Л.Л.. Практикум по курсу «Численные методы». Решение
     систем линейных уравнений: учеб. пособие. — Казань: Изд-во Казан. ун-та, 2017. — 52 с.
+    \item Дж. Ортега, У. Пул. Введение в численные методы решения дифференци-
+    альных уравнений. — М.: Наука, 1986
+    \item Самарский А.А., Гулин А.В. Численные методы. — М.: Наука, 1989.
+    \item Бахвалов Н.С., Жидков Н.П., Кобельков Г.М. Численные методы. — М.:
+    БИНОМ. Лаб. знаний, 2007.
+    \item Глазырина Л. Л., Карчевский М. М. Введение в численные методы. —
+    Казань, КГУ, 2012
 \end{enumerate}
 \newpage
 
-\begin{center}
 \section{Листинг программы}
-\end{center}
 \lstinputlisting[language=C++]{../src/main.cpp}
 \end{document}

@@ -3,6 +3,7 @@
 #include <cmath>
 #include <fstream>
 #include <iomanip>
+#include <algorithm>
 
 #define a 0.0
 #define b 20.0
@@ -90,20 +91,53 @@ void exact(double h, std::vector<double>& y1, std::vector<double>& y2) {
 }
 
 int main(){
-    double x0 = 3;
-    double y0 = 1;
-    int n = 100;
-    double h = (b - a) / n;
-    std::vector<double> t;
-    std::vector<double> y1;
-    std::vector<double> y2;
-    solve_dynamic(h, x0, y0, t, y1, y2);
-    std::ofstream f("data.txt");
-    for(int i = 0; i < t.size(); ++i) {
-        f << y1[i] << " " << y2[i] << "\n";
+    double x0 = 1;
+    double y0 = 0;
+    int n = 36;
+    std::vector<double> N(n);
+    std::vector<double> e(n);
+    std::vector<double> h(n);
+    std::vector<double> e4(n);
+    for(int i = 0; i < 25; i++){
+        N[i] = (i+1); 
     }
-    f.close();
+    for(int i = 25; i < n; i++){
+        N[i] = (N[i-1] + 25); 
+    }
+    for(int i = 0; i < n; i++){
+        h[i] = ((b-a)/N[i]);
+    }
+    for(int i = 0; i < n; i++){
+        std::vector<double> t(n);
+        std::vector<double> y1(n);
+        std::vector<double> y2(n);
+        solve_test(h[i], x0, y0, t, y1, y2);
+        std::vector<double> y1ex(n);
+        std::vector<double> y2ex(n);
+        exact(h[i], y1ex, y2ex);
 
+        std::vector<double> y1_error(n);
+        std::vector<double> y2_error(n);
+        double max_y1_error = -1000;
+        double max_y2_error = -1000;
+        for(int j = 0; j < n; j++){
+            y1_error[j] = (abs(y1[j] - y1ex[j]));
+            y2_error[j] = (abs(y2[j] - y2ex[j]));
+            if(y1_error[j] > max_y1_error){
+                max_y1_error = y1_error[j];
+            }
+            if(y2_error[j] > max_y2_error){
+                max_y2_error = y2_error[j];
+            }
+        }
+        e[i] = (std::max(max_y1_error, max_y2_error));
+    }
+    
+    for(int i = 0; i < n; i++){
+        double h4 = pow(h[i], 4);
+        e4[i] = (e[i]/h4);
+    }
+    
     return 0;
 }
 
