@@ -24,7 +24,7 @@ double y1_dynamic(double y1, double y2) {
 double y2_dynamic(double y1, double y2) {
     return -sigma*y2 + y1*y2;
 }
-void solve_test(double h, double x0, double y0, std::vector<double>& t, std::vector<double>& y1, std::vector<double>& y2) {
+void test(double h, double x0, double y0, std::vector<double>& t, std::vector<double>& y1, std::vector<double>& y2) {
     int n = static_cast<int>((b - a) / h + 1);
     t = std::vector<double>(n);
     y1 = std::vector<double>(n);
@@ -52,7 +52,7 @@ void solve_test(double h, double x0, double y0, std::vector<double>& t, std::vec
     }
 }
 
-void solve_dynamic(double h, double x0, double y0, std::vector<double>& t, std::vector<double>& y1, std::vector<double>& y2) {
+void dynamic(double h, double x0, double y0, std::vector<double>& t, std::vector<double>& y1, std::vector<double>& y2) {
     int n = static_cast<int>((b - a) / h + 1);
     t = std::vector<double>(n);
     y1 = std::vector<double>(n);
@@ -111,7 +111,7 @@ int main(){
         std::vector<double> t(n);
         std::vector<double> y1(n);
         std::vector<double> y2(n);
-        solve_test(h[i], x0, y0, t, y1, y2);
+        test(h[i], x0, y0, t, y1, y2);
         std::vector<double> y1ex(n);
         std::vector<double> y2ex(n);
         exact(h[i], y1ex, y2ex);
@@ -137,6 +137,8 @@ int main(){
         double h4 = pow(h[i], 4);
         e4[i] = (e[i]/h4);
     }
+
+
     
     return 0;
 }
